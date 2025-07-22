@@ -1,9 +1,9 @@
 ---
 layout: default
-title: gk6 – Your Postman’s Secret Weapon
+title: gk6 – k6’s Secret Weapon for Postman Collections
 ---
 
-# ⚡️ gk6 – Your Postman’s Secret Weapon
+# ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 
 **Convert boring old Postman collections into blazing-fast [k6](https://k6.io) load tests**  
 No manual rewrites. No fragile copy-paste. Just `python gk6.py` and boom — performance testing magic.
