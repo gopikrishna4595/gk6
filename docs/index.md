@@ -3,10 +3,12 @@ layout: default
 title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 
-<h1 class="gk6-hero">
-  <span class="gk">g</span><span class="k6">k6</span>
-  <span class="expansion"> → <span class="fadein">generate</span> <span class="shine">k6</span></span>
-</h1>
+<div class="hero-animation">
+  <span class="letter g">g</span>
+  <span class="spark"></span>
+  <span class="generate">enerate</span>
+  <span class="letter k6">k6</span>
+</div>
 
 
 🧠 **Convert Postman collections into powerful [k6](https://k6.io) load test scripts — automatically.**  
