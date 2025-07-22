@@ -1,38 +1,40 @@
 ---
 layout: default
-title: gk6 – k6’s Secret Weapon for Postman Collections
+title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 
-# ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
+<h1 class="gk6-hero">
+  <span class="gk">g</span><span class="k6">k6</span>
+  <span class="expansion"> → <span class="fadein">generate</span> <span class="shine">k6</span></span>
+</h1>
 
-**Convert boring old Postman collections into blazing-fast [k6](https://k6.io) load tests**  
-No manual rewrites. No fragile copy-paste. Just `python gk6.py` and boom — performance testing magic.
+
+🧠 **Convert Postman collections into powerful [k6](https://k6.io) load test scripts — automatically.**  
+No rewrites. No duct tape. Just pure Python + performance clarity.
 
 [⭐ View on GitHub](https://github.com/gopikrishna4595/gk6)
 
 ---
 
-## 🎯 What Does This Tool Actually Do?
+## 🔥 What Does gk6 Actually Do?
 
 **gk6** reads your Postman collection and:
 
-- 🧪 Detects `pm.environment.set()` calls like a bloodhound on a scent trail  
-- 🔗 Tracks variable dependencies so chaining works without tears  
-- 🧬 Transforms `{{var}}` into something k6 actually understands (no, not a love letter)  
-- 📊 Injects `Trend` metrics and response time checks for every request  
-- 📤 Outputs a runnable `.js` file and optional `.env` file — just plug & k6  
-
-Basically: **you write nothing, you break nothing, and you get metrics that actually mean something.**
+- 🧪 Detects `pm.environment.set()` like a bloodhound on Red Bull  
+- 🔗 Follows variable chaining across tests and folders  
+- 🧬 Converts `{{envVars}}` to `__ENV.` or chained values for k6  
+- 📊 Adds `Trend` metrics + response checks for every request  
+- ⚙️ Outputs clean, executable `.js` files and optional `.env` config
 
 ---
 
-## ⚙️ How to Use It
+## 🚀 Quick Usage
 
 ```bash
 python gk6.py \
-  --collection postman.json \
-  --environment env.json \
-  --select 1,3,4 \
-  --output stress_test.js
+  --collection my_collection.json \
+  --environment my_env.json \
+  --select 1,2,3 \
+  --output test_script.js
 
-k6 run stress_test.js
+k6 run test_script.js
