@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<h1 style="font-size: 2.2rem;">⚡️ gk6 – Your Postman’s Secret Weapon</h1>
+
+<p><strong>Convert boring old Postman collections into blazing-fast <a href="https://k6.io">k6</a> load tests</strong><br>
+No manual rewrites. No fragile copy-paste. Just <code>python gk6.py</code> and boom — performance testing magic.</p>
+
+<p><a href="https://github.com/gopikrishna4595/gk6" class="btn">⭐ View on GitHub</a></p>
+
+<img src="./demo.gif" alt="gk6 demo" style="max-width: 100%; border-radius: 8px; margin-top: 1em;">
+
+---
+
+## 🎯 What Does This Tool Actually Do?
+
+**gk6** reads your Postman collection and:
+- 🧪 Detects `pm.environment.set()` calls like a bloodhound on a scent trail
+- 🔗 Tracks variable dependencies so chaining works without tears
+- 🧬 Transforms `{{token}}` into something k6 actually understands (no, not a love letter)
+- 📊 Injects `Trend` metrics and response time checks for every request
+- 📤 Outputs a runnable `.js` file and optional `.env` file — just plug & k6
+
+Basically: **you write nothing, you break nothing, and you get metrics that actually mean something.**
+
+---
+
+## ⚙️ How to Use It
+
+```bash
+python gk6.py \
+  --collection postman.json \
+  --environment env.json \
+  --select 1,3,4 \
+  --output stress_test.js
+
+k6 run stress_test.js
