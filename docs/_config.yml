@@ -1,0 +1,13 @@
+title: gk6
+description: k6’s secret weapon for converting Postman collections
+theme: jekyll-theme-minimal
+markdown: kramdown
+
+# Enable custom CSS
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+      css: "/gk6/docs/assets/style.css"
