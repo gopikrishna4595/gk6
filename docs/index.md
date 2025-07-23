@@ -2,43 +2,41 @@
 layout: default
 title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
+<svg width="100%" height="100" viewBox="0 0 800 100">
+  <style>
+    .letter {
+      font: 900 40px 'Fira Code', monospace;
+      fill: black;
+      dominant-baseline: middle;
+      text-anchor: middle;
+    }
+    .gk {
+      opacity: 1;
+      animation: slideApart 1s ease-out forwards;
+    }
+    .generate {
+      opacity: 0;
+      animation: revealLetters 1s 1s ease-out forwards;
+    }
+    @keyframes slideApart {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-30px);
+      }
+    }
+    @keyframes revealLetters {
+      0% { opacity: 0; letter-spacing: 50px; }
+      100% { opacity: 1; letter-spacing: 8px; }
+    }
+  </style>
 
-<link rel="stylesheet" href="./assets/css/fireworks.css" />
-
-<svg viewBox="0 0 800 120" width="100%" height="120" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="100%" height="120" fill="transparent" />
-
-  <!-- Stars twinkle -->
-  <circle class="star" cx="50" cy="20" r="3"/>
-  <circle class="star" cx="300" cy="10" r="2"/>
-  <circle class="star" cx="500" cy="30" r="2.5"/>
-  <circle class="star" cx="150" cy="60" r="2"/>
-
-  <!-- Fireworks -->
-  <g class="fireworks">
-    <circle class="firework" cx="400" cy="40" r="2" />
-    <circle class="firework" cx="380" cy="80" r="2" />
-    <circle class="firework" cx="420" cy="90" r="2" />
-    <circle class="firework" cx="410" cy="50" r="2" />
-    <circle class="firework" cx="430" cy="60" r="2" />
-  </g>
-
-  <!-- g and k6 burning -->
-  <text x="350" y="60" class="letter g burning">g</text>
-  <text x="385" y="60" class="letter k6 burning">k6</text>
-
-  <!-- Reveal en- e-r-a-t-e -->
-  <g class="generate-group">
-    <text x="322" y="60" class="letter">e</text>
-    <text x="346" y="60" class="letter">n</text>
-    <text x="370" y="60" class="letter">e</text>
-    <text x="394" y="60" class="letter">r</text>
-    <text x="418" y="60" class="letter">a</text>
-    <text x="442" y="60" class="letter">t</text>
-    <text x="466" y="60" class="letter">e</text>
-  </g>
+  <text x="370" y="60" class="letter gk" style="font-weight:900;">g</text>
+  <text x="400" y="60" class="letter generate">e n e r a t e</text>
+  <text x="540" y="60" class="letter gk" style="font-weight:900;">k6</text>
 </svg>
+
 
 ---
 
