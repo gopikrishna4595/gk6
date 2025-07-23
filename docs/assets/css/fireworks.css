@@ -1,31 +1,44 @@
 
+/* fireworks.css */
 .firework {
-  position: absolute;
-  animation-duration: 4s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  opacity: 0;
+  animation: explode 2s ease-in-out infinite;
+  transform-origin: center;
+}
+.firework.arc {
+  animation-name: arcPath;
+}
+.firework.vertical {
+  animation-name: verticalPath;
+}
+
+@keyframes arcPath {
+  0% { transform: translate(0, 0); opacity: 1; }
+  50% { transform: translate(-30px, -60px); opacity: 0.9; }
+  100% { transform: translate(0, -120px); opacity: 0; }
+}
+@keyframes verticalPath {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  animation: fallConfetti 4s linear infinite;
   opacity: 0.8;
 }
-
-.firework.vertical {
-  animation-name: verticalSpark;
+@keyframes fallConfetti {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-.firework.arc {
-  animation-name: arcSpark;
-}
-
-@keyframes verticalSpark {
-  0%   { transform: translateY(0); opacity: 1; }
-  30%  { transform: translateY(-40px); }
-  70%  { transform: translateY(20px); opacity: 0.6; }
-  100% { transform: translateY(40px); opacity: 0; }
-}
-
-@keyframes arcSpark {
-  0%   { transform: translate(0, 0); opacity: 1; }
-  25%  { transform: translate(20px, -30px); }
-  50%  { transform: translate(30px, 0px); opacity: 0.8; }
-  75%  { transform: translate(15px, 20px); }
-  100% { transform: translate(0px, 40px); opacity: 0; }
-}
+.confetti-red { fill: #ff4d4f; }
+.confetti-blue { fill: #40a9ff; }
+.confetti-green { fill: #73d13d; }
+.confetti-yellow { fill: #fadb14; }
