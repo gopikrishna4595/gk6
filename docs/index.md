@@ -2,6 +2,7 @@
 layout: default
 title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
+
 <div style="text-align:center; margin-bottom: 1rem;">
 <svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg">
   <!-- Stars -->
@@ -10,7 +11,7 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   <circle class="star" cx="500" cy="30" r="2.5"/>
   <circle class="star" cx="150" cy="60" r="2"/>
 
-  <!-- Sliding Text: g → generate → k6 -->
+  <!-- Sliding Text -->
   <text x="300" y="60" class="letter g burning">g</text>
   <text x="332" y="60" class="letter k6 burning">k6</text>
   <g class="generate-group">
@@ -24,53 +25,25 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Firework sparks -->
+  <!-- Firework Sparks -->
   <g class="firework-group">
-    <circle class="firework vertical red" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
-    <circle class="firework arc blue" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
-    <circle class="firework vertical green" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
-    <circle class="firework arc yellow" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
-    <circle class="firework vertical red" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
-    <circle class="firework arc blue" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
-    <circle class="firework vertical green" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
-    <circle class="firework arc yellow" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
-    <circle class="firework vertical red" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
-    <circle class="firework arc blue" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
-    <circle class="firework vertical green" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
-    <circle class="firework arc yellow" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
-    <circle class="firework vertical red" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
-    <circle class="firework arc blue" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
-    <circle class="firework vertical green" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
-    <circle class="firework arc yellow" cx="100" cy="60" r="2" style="animation-delay: 1.5s;" />
-    <circle class="firework vertical red" cx="145" cy="60" r="2" style="animation-delay: 1.6s;" />
-    <circle class="firework arc blue" cx="190" cy="60" r="2" style="animation-delay: 1.7s;" />
-    <circle class="firework vertical green" cx="235" cy="60" r="2" style="animation-delay: 1.8s;" />
-    <circle class="firework arc yellow" cx="280" cy="60" r="2" style="animation-delay: 1.9s;" />
-    <circle class="firework vertical red" cx="325" cy="60" r="2" style="animation-delay: 2.0s;" />
-    <circle class="firework arc blue" cx="370" cy="60" r="2" style="animation-delay: 2.1s;" />
-    <circle class="firework vertical green" cx="415" cy="60" r="2" style="animation-delay: 2.2s;" />
-    <circle class="firework arc yellow" cx="460" cy="60" r="2" style="animation-delay: 2.3s;" />
-    <circle class="firework vertical red" cx="505" cy="60" r="2" style="animation-delay: 2.4s;" />
-    <circle class="firework arc blue" cx="550" cy="60" r="2" style="animation-delay: 2.5s;" />
-    <circle class="firework vertical green" cx="595" cy="60" r="2" style="animation-delay: 2.6s;" />
-    <circle class="firework arc yellow" cx="640" cy="60" r="2" style="animation-delay: 2.7s;" />
-    <circle class="firework vertical red" cx="685" cy="60" r="2" style="animation-delay: 2.8s;" />
-    <circle class="firework arc blue" cx="730" cy="60" r="2" style="animation-delay: 2.9s;" />
-    <circle class="firework vertical green" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
-    <circle class="firework arc yellow" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
-    <circle class="firework vertical red" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
-    <circle class="firework arc blue" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
-    <circle class="firework vertical green" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
-    <circle class="firework arc yellow" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
-    <circle class="firework vertical red" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
-    <circle class="firework arc blue" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
-    <circle class="firework vertical green" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
-    <circle class="firework arc yellow" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
-    <circle class="firework vertical red" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
-    <circle class="firework arc blue" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
-    <circle class="firework vertical green" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
-    <circle class="firework arc yellow" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
-    <circle class="firework vertical red" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
+    <!-- 45 total sparks -->
+    {% assign positions = "180,360,540" | split: "," %}
+    {% for base in positions %}
+      {% assign b = base | plus: 0 %}
+      {% for offset in (0..14) %}
+        {% assign x = b | plus: offset | minus: 7 %}
+        <circle class="firework red arc" cx="{{ x }}" cy="60" r="1.8" />
+      {% endfor %}
+    {% endfor %}
+  </g>
+
+  <!-- Confetti -->
+  <g class="confetti-group">
+    {% for i in (0..49) %}
+      {% assign x = 260 | plus: i | times: 2 %}
+      <rect class="confetti" x="{{ x | modulo: 800 }}" y="0" width="4" height="8"/>
+    {% endfor %}
   </g>
 </svg>
 </div>
@@ -98,10 +71,10 @@ No rewrites. No duct tape. Just pure Python + performance clarity.
 
 ## ⚠️ Known Limitations
 
-- ❌ No support (yet) for GraphQL requests
-- 🧱 Doesn't currently handle `pm.globals.set()`
-- 🌪️ Assumes all requests are RESTful and JSON-friendly
-- 🔗 Variable chaining that spans *multiple levels* may not fully resolve
+- ❌ No support (yet) for GraphQL requests  
+- 🧱 Doesn't currently handle `pm.globals.set()`  
+- 🌪️ Assumes all requests are RESTful and JSON-friendly  
+- 🔗 Variable chaining that spans *multiple levels* may not fully resolve  
 - 👻 If your Postman script is a spaghetti monster — it’ll still be spaghetti in k6
 
 ---
@@ -116,8 +89,4 @@ python gk6.py \
   --output test_script.js
 
 k6 run test_script.js
-```
-
----
-
-Got questions or feedback? Raise an issue — or better yet, a PR 😎
+- Got questions or feedback? Raise an issue — or better yet, a PR 😎
