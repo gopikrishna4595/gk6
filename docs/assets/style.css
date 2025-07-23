@@ -1,181 +1,104 @@
-body {
-  background-color: #0d1117;
-  color: #c9d1d9;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-  line-height: 1.7;
-  padding: 2rem;
+/* styles.css for gk6 GitHub Pages */
+
+.letter {
+  font: 900 48px 'Fira Code', monospace;
+  fill: #000;
+  dominant-baseline: middle;
 }
 
-a {
-  color: #14b8a6;
-  text-decoration: none;
-  font-weight: 500;
+.burning {
+  animation: burnEffect 6s ease-in-out infinite;
+  transform-origin: center;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-h1, h2, h3 {
-  color: #f26d50;
-}
-
-code, pre {
-  background: #161b22;
-  color: #f2f2f2;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
-  font-family: Consolas, monospace;
-  font-size: 0.95rem;
-}
-
-pre {
-  overflow-x: auto;
-  padding: 1rem;
-  line-height: 1.5;
-}
-
-img {
-  border-radius: 8px;
-  margin-top: 1rem;
-  max-width: 100%;
-}
-
-hr {
-  border: 1px solid #30363d;
-  margin: 2rem 0;
-}
-
-.gk6-hero {
-  font-size: 2.8rem;
-  font-weight: bold;
-  color: #f26d50;
-  margin-bottom: 0.5rem;
-  font-family: 'Fira Code', Consolas, monospace;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.gk6-hero .expansion {
-  font-size: 1.2rem;
-  color: #c9d1d9;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-left: 0.5rem;
-  animation: slideIn 6s infinite ease-in-out;
-}
-
-.gk6-hero .fadein {
-  opacity: 0;
-  animation: fadeIn 6s infinite ease-in-out;
-}
-
-.gk6-hero .shine {
-  color: #14b8a6;
-  position: relative;
-  animation: shine 6s infinite ease-in-out;
-}
-
-@keyframes slideIn {
-  0% { opacity: 0; transform: translateX(-10px); }
-  10% { opacity: 1; transform: translateX(0); }
-  60% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(10px); }
-}
-
-@keyframes fadeIn {
-  0%, 20% { opacity: 0; }
-  25%, 60% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes shine {
-  0%, 25% { text-shadow: none; }
-  30%, 40% {
-    text-shadow: 0 0 6px #14b8a6, 0 0 10px #14b8a6;
+@keyframes burnEffect {
+  0%, 44%, 59%, 100% {
+    filter: none;
+    fill: #000;
+    transform: none;
   }
-  50% { text-shadow: none; }
-  100% { text-shadow: none; }
+  45%, 48%, 52%, 56%, 58% {
+    fill: #ffaa33;
+    filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
+    transform: scaleY(1.05) translateY(-1px);
+  }
+  46%, 50%, 54% {
+    fill: #ffee99;
+    filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
+    transform: scaleY(0.96) translateY(1px);
+  }
 }
 
-.hero-animation {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #fff;
-  font-family: 'Fira Code', monospace;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  margin: 2rem 0;
-  height: 3.5rem;
+.g {
+  animation: moveG 6s ease-in-out infinite;
+  font-weight: 900;
 }
 
-.hero-animation .letter {
-  display: inline-block;
-  position: relative;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
+.k6 {
+  animation: moveK6 6s ease-in-out infinite;
+  font-weight: 900;
 }
 
-.hero-animation .g {
-  animation-name: slideLeft;
-  animation-delay: 0s;
-}
-
-.hero-animation .k6 {
-  animation-name: slideRight;
-  animation-delay: 0s;
-}
-
-.hero-animation .generate {
-  position: absolute;
-  left: 1.8rem;
-  top: 0;
+.generate-group {
+  clip-path: inset(0 100% 0 0);
   opacity: 0;
-  color: #14b8a6;
-  animation: fadeIn 4s ease-in-out infinite;
-  font-weight: 500;
+  animation:
+    moveG 6s ease-in-out infinite,
+    revealClip 6s ease-in-out infinite,
+    fadeOut 6s ease-in-out infinite;
 }
 
-@keyframes slideLeft {
-  0%, 20%   { transform: translateX(0); }
-  30%, 70%  { transform: translateX(-2rem); }
-  80%, 100% { transform: translateX(0); }
+@keyframes moveG {
+  0%, 15%   { transform: translateX(0); }
+  25%, 70%  { transform: translateX(-64px); }
+  85%, 100% { transform: translateX(0); }
 }
 
-@keyframes slideRight {
-  0%, 20%   { transform: translateX(0); }
-  30%, 70%  { transform: translateX(2.5rem); }
-  80%, 100% { transform: translateX(0); }
+@keyframes moveK6 {
+  0%, 15%   { transform: translateX(0); }
+  25%, 70%  { transform: translateX(128px); }
+  85%, 100% { transform: translateX(0); }
 }
 
-@keyframes fadeIn {
-  0%, 20%   { opacity: 0; }
-  30%, 70%  { opacity: 1; }
-  80%, 100% { opacity: 0; }
+@keyframes revealClip {
+  0%, 15%   { clip-path: inset(0 100% 0 0); }
+  25%, 70%  { clip-path: inset(0 0% 0 0); }
+  85%, 100% { clip-path: inset(0 100% 0 0); }
 }
 
-/* Spark effect */
-.hero-animation .spark {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #f26d50, transparent);
-  transform: translateY(-50%);
-  animation: sparkTrail 4s linear infinite;
-  pointer-events: none;
-  z-index: -1;
+@keyframes fadeOut {
+  0%, 58%   { opacity: 1; }
+  70%, 100% { opacity: 0; }
 }
 
-@keyframes sparkTrail {
-  0% { left: -100%; opacity: 0; }
-  10% { opacity: 1; }
-  50% { left: 100%; opacity: 1; }
-  60% { opacity: 0; }
-  100% { left: 100%; opacity: 0; }
+.star {
+  fill: #ffe34c;
+  animation: twinkle 6s infinite ease-in-out alternate;
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.firework {
+  fill: #ffcc00;
+  opacity: 0;
+  transform-origin: center;
+  animation: fireworkBurst 6s ease-in-out infinite;
+}
+
+@keyframes fireworkBurst {
+  0%, 24%, 71%, 100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  25%, 30%, 35% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+  40%, 70% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
