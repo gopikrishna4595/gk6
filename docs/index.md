@@ -24,24 +24,72 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Firework sparks (45 total, 15 clusters across left-center-right) -->
+  <!-- Firework sparks (exactly 45 total) -->
 <g class="firework-group">
-  {% assign clusters = "180,200,220,240,260,280,300,320,340,360,380,400,420,440,460" | split: "," %}
-  {% for cx in clusters %}
-    <!-- Left -->
-    <circle class="firework red vertical" cx="{{ cx | minus: 100 }}" cy="60" r="2"/>
-    <circle class="firework blue arc"     cx="{{ cx | minus: 90 }}"  cy="60" r="2"/>
-    <circle class="firework green arc"    cx="{{ cx | minus: 80 }}"  cy="60" r="2"/>
-    <!-- Center -->
-    <circle class="firework yellow vertical" cx="{{ cx }}" cy="60" r="2"/>
-    <circle class="firework green arc"       cx="{{ cx | plus: 10 }}" cy="60" r="2"/>
-    <circle class="firework red arc"         cx="{{ cx | plus: 20 }}" cy="60" r="2"/>
-    <!-- Right -->
-    <circle class="firework blue vertical"  cx="{{ cx | plus: 100 }}" cy="60" r="2"/>
-    <circle class="firework yellow arc"     cx="{{ cx | plus: 110 }}" cy="60" r="2"/>
-    <circle class="firework green arc"      cx="{{ cx | plus: 120 }}" cy="60" r="2"/>
-  {% endfor %}
+  <!-- 5 clusters on the left -->
+  <circle class="firework red vertical" cx="120" cy="60" r="2"/>
+  <circle class="firework blue arc"     cx="130" cy="60" r="2"/>
+  <circle class="firework green arc"    cx="140" cy="60" r="2"/>
+
+  <circle class="firework red vertical" cx="150" cy="60" r="2"/>
+  <circle class="firework blue arc"     cx="160" cy="60" r="2"/>
+  <circle class="firework green arc"    cx="170" cy="60" r="2"/>
+
+  <circle class="firework red vertical" cx="180" cy="60" r="2"/>
+  <circle class="firework blue arc"     cx="190" cy="60" r="2"/>
+  <circle class="firework green arc"    cx="200" cy="60" r="2"/>
+
+  <circle class="firework red vertical" cx="210" cy="60" r="2"/>
+  <circle class="firework blue arc"     cx="220" cy="60" r="2"/>
+  <circle class="firework green arc"    cx="230" cy="60" r="2"/>
+
+  <circle class="firework red vertical" cx="240" cy="60" r="2"/>
+  <circle class="firework blue arc"     cx="250" cy="60" r="2"/>
+  <circle class="firework green arc"    cx="260" cy="60" r="2"/>
+
+  <!-- 5 clusters in the center -->
+  <circle class="firework yellow vertical" cx="330" cy="60" r="2"/>
+  <circle class="firework green arc"       cx="340" cy="60" r="2"/>
+  <circle class="firework red arc"         cx="350" cy="60" r="2"/>
+
+  <circle class="firework yellow vertical" cx="360" cy="60" r="2"/>
+  <circle class="firework green arc"       cx="370" cy="60" r="2"/>
+  <circle class="firework red arc"         cx="380" cy="60" r="2"/>
+
+  <circle class="firework yellow vertical" cx="390" cy="60" r="2"/>
+  <circle class="firework green arc"       cx="400" cy="60" r="2"/>
+  <circle class="firework red arc"         cx="410" cy="60" r="2"/>
+
+  <circle class="firework yellow vertical" cx="420" cy="60" r="2"/>
+  <circle class="firework green arc"       cx="430" cy="60" r="2"/>
+  <circle class="firework red arc"         cx="440" cy="60" r="2"/>
+
+  <circle class="firework yellow vertical" cx="450" cy="60" r="2"/>
+  <circle class="firework green arc"       cx="460" cy="60" r="2"/>
+  <circle class="firework red arc"         cx="470" cy="60" r="2"/>
+
+  <!-- 5 clusters on the right -->
+  <circle class="firework blue vertical" cx="540" cy="60" r="2"/>
+  <circle class="firework yellow arc"    cx="550" cy="60" r="2"/>
+  <circle class="firework green arc"     cx="560" cy="60" r="2"/>
+
+  <circle class="firework blue vertical" cx="570" cy="60" r="2"/>
+  <circle class="firework yellow arc"    cx="580" cy="60" r="2"/>
+  <circle class="firework green arc"     cx="590" cy="60" r="2"/>
+
+  <circle class="firework blue vertical" cx="600" cy="60" r="2"/>
+  <circle class="firework yellow arc"    cx="610" cy="60" r="2"/>
+  <circle class="firework green arc"     cx="620" cy="60" r="2"/>
+
+  <circle class="firework blue vertical" cx="630" cy="60" r="2"/>
+  <circle class="firework yellow arc"    cx="640" cy="60" r="2"/>
+  <circle class="firework green arc"     cx="650" cy="60" r="2"/>
+
+  <circle class="firework blue vertical" cx="660" cy="60" r="2"/>
+  <circle class="firework yellow arc"    cx="670" cy="60" r="2"/>
+  <circle class="firework green arc"     cx="680" cy="60" r="2"/>
 </g>
+
 </svg>
 </div>
 
