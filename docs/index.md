@@ -24,21 +24,24 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Firework sparks (will be expanded in CSS) -->
-  <g class="firework-group">
-    <!-- Left cluster -->
-    <circle class="firework red vertical" cx="180" cy="60" r="2"/>
-    <circle class="firework blue arc" cx="190" cy="60" r="2"/>
-    <circle class="firework green arc" cx="200" cy="60" r="2"/>
-    <!-- Center cluster -->
-    <circle class="firework yellow vertical" cx="360" cy="60" r="2"/>
-    <circle class="firework green arc" cx="370" cy="60" r="2"/>
-    <circle class="firework red arc" cx="380" cy="60" r="2"/>
-    <!-- Right cluster -->
-    <circle class="firework blue vertical" cx="540" cy="60" r="2"/>
-    <circle class="firework yellow arc" cx="550" cy="60" r="2"/>
-    <circle class="firework green arc" cx="560" cy="60" r="2"/>
-  </g>
+  <!-- Firework sparks (45 total, 15 clusters across left-center-right) -->
+<g class="firework-group">
+  {% assign clusters = "180,200,220,240,260,280,300,320,340,360,380,400,420,440,460" | split: "," %}
+  {% for cx in clusters %}
+    <!-- Left -->
+    <circle class="firework red vertical" cx="{{ cx | minus: 100 }}" cy="60" r="2"/>
+    <circle class="firework blue arc"     cx="{{ cx | minus: 90 }}"  cy="60" r="2"/>
+    <circle class="firework green arc"    cx="{{ cx | minus: 80 }}"  cy="60" r="2"/>
+    <!-- Center -->
+    <circle class="firework yellow vertical" cx="{{ cx }}" cy="60" r="2"/>
+    <circle class="firework green arc"       cx="{{ cx | plus: 10 }}" cy="60" r="2"/>
+    <circle class="firework red arc"         cx="{{ cx | plus: 20 }}" cy="60" r="2"/>
+    <!-- Right -->
+    <circle class="firework blue vertical"  cx="{{ cx | plus: 100 }}" cy="60" r="2"/>
+    <circle class="firework yellow arc"     cx="{{ cx | plus: 110 }}" cy="60" r="2"/>
+    <circle class="firework green arc"      cx="{{ cx | plus: 120 }}" cy="60" r="2"/>
+  {% endfor %}
+</g>
 </svg>
 </div>
 
