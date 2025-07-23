@@ -4,7 +4,7 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 
 <div style="text-align:center; margin-bottom: 1rem;">
-<svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 160" width="90%" height="160" xmlns="http://www.w3.org/2000/svg">
   <!-- Stars -->
   <circle class="star" cx="50" cy="20" r="3"/>
   <circle class="star" cx="300" cy="10" r="2"/>
@@ -12,37 +12,41 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   <circle class="star" cx="150" cy="60" r="2"/>
 
   <!-- Sliding Text -->
-  <text x="300" y="60" class="letter g burning">g</text>
-  <text x="332" y="60" class="letter k6 burning">k6</text>
+  <text x="300" y="100" class="letter g burning">g</text>
+  <text x="332" y="100" class="letter k6 burning">k6</text>
   <g class="generate-group">
-    <text x="322" y="60" class="letter">e</text>
-    <text x="346" y="60" class="letter">n</text>
-    <text x="370" y="60" class="letter">e</text>
-    <text x="394" y="60" class="letter">r</text>
-    <text x="418" y="60" class="letter">a</text>
-    <text x="442" y="60" class="letter">t</text>
-    <text x="466" y="60" class="letter">e</text>
-    <text x="490" y="60" class="letter"> </text>
+    <text x="322" y="100" class="letter">e</text>
+    <text x="346" y="100" class="letter">n</text>
+    <text x="370" y="100" class="letter">e</text>
+    <text x="394" y="100" class="letter">r</text>
+    <text x="418" y="100" class="letter">a</text>
+    <text x="442" y="100" class="letter">t</text>
+    <text x="466" y="100" class="letter">e</text>
   </g>
 
-  <!-- Firework Sparks -->
+  <!-- Firework Sparks (45) -->
   <g class="firework-group">
-    <!-- 45 total sparks -->
-    {% assign positions = "180,360,540" | split: "," %}
-    {% for base in positions %}
-      {% assign b = base | plus: 0 %}
-      {% for offset in (0..14) %}
-        {% assign x = b | plus: offset | minus: 7 %}
-        <circle class="firework red arc" cx="{{ x }}" cy="60" r="1.8" />
-      {% endfor %}
+    {% for i in (0..14) %}
+      {% assign baseX = 180 | plus: i | times: 10 %}
+      <circle class="firework arc" cx="{{ baseX }}" cy="100" r="1.5"/>
+    {% endfor %}
+    {% for i in (0..14) %}
+      {% assign baseX = 360 | plus: i | times: 10 %}
+      <circle class="firework vertical" cx="{{ baseX }}" cy="100" r="1.5"/>
+    {% endfor %}
+    {% for i in (0..14) %}
+      {% assign baseX = 540 | plus: i | times: 10 %}
+      <circle class="firework arc" cx="{{ baseX }}" cy="100" r="1.5"/>
     {% endfor %}
   </g>
 
-  <!-- Confetti -->
+  <!-- Confetti (50) -->
   <g class="confetti-group">
+    {% assign colors = "red,blue,green,yellow" | split: "," %}
     {% for i in (0..49) %}
-      {% assign x = 260 | plus: i | times: 2 %}
-      <rect class="confetti" x="{{ x | modulo: 800 }}" y="0" width="4" height="8"/>
+      {% assign x = 260 | plus: i | times: 10 %}
+      {% assign color = colors[i | modulo: 4] %}
+      <rect class="confetti confetti-{{ color }}" x="{{ x | modulo: 800 }}" y="0" width="6" height="10"/>
     {% endfor %}
   </g>
 </svg>
@@ -89,4 +93,3 @@ python gk6.py \
   --output test_script.js
 
 k6 run test_script.js
-- Got questions or feedback? Raise an issue — or better yet, a PR 😎
