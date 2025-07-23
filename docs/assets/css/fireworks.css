@@ -1,78 +1,36 @@
 
 ---
 
-#### 🧨 Now replace **`fireworks.css`** with:
+### 📄 `docs/assets/css/fireworks.css`
+
 ```css
-/* Fireworks Spark */
-.firework {
-  fill: #ffe34c;
-  opacity: 0;
-  transform-origin: center;
-}
-.firework.arc {
-  animation: arcPath 2s ease-in-out infinite;
-}
-.firework.vertical {
-  animation: verticalPath 2s ease-in-out infinite;
-}
-
-@keyframes arcPath {
-  0% { transform: translate(0, 0); opacity: 1; }
-  50% { transform: translate(10px, -30px); opacity: 0.7; }
-  100% { transform: translate(-10px, 80px); opacity: 0; }
-}
-@keyframes verticalPath {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(90px); opacity: 0; }
-}
-
-/* Confetti Wiggle */
-.confetti {
-  opacity: 0.85;
-  transform-origin: center;
-  animation: fallConfetti 4s ease-in-out infinite;
-}
-@keyframes fallConfetti {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(80px) rotate(180deg) scale(1.1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(160px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Confetti colors */
-.confetti-red { fill: #ff4d4f; }
-.confetti-blue { fill: #40a9ff; }
-.confetti-green { fill: #73d13d; }
-.confetti-yellow { fill: #fadb14; }
-
-/* Letters */
 .letter {
-  font: bold 48px 'Fira Code', monospace;
+  font: 900 48px 'Fira Code', monospace;
   fill: #000;
+  font-weight: 900;
+  letter-spacing: -1px;
   dominant-baseline: middle;
+  text-shadow: 0 0 1px #ffaa33;
 }
+
 .burning {
-  animation: burnEffect 10s ease-in-out infinite;
+  animation: burnEffect 6s ease-in-out infinite;
+  transform-origin: center;
 }
+
 @keyframes burnEffect {
-  0%, 44%, 85%, 100% {
+  0%, 44%, 59%, 100% {
     filter: none;
-    fill: #fff;
+    fill: #000;
     transform: none;
   }
+
   45%, 48%, 52%, 56%, 58% {
     fill: #ffaa33;
     filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
     transform: scaleY(1.05) translateY(-1px);
   }
+
   46%, 50%, 54% {
     fill: #ffee99;
     filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
@@ -80,41 +38,159 @@
   }
 }
 
-/* Sliding text reveal */
-.g { animation: moveG 10s ease-in-out infinite; }
-.k6 { animation: moveK6 10s ease-in-out infinite; }
+.g {
+  animation: moveG 6s ease-in-out infinite;
+  font-weight: 900;
+}
+
+.k6 {
+  animation: moveK6 6s ease-in-out infinite;
+  font-weight: 900;
+}
+
 .generate-group {
   clip-path: inset(0 100% 0 0);
   opacity: 0;
-  animation: moveG 10s ease-in-out infinite, revealClip 10s ease-in-out infinite, fadeOut 10s ease-in-out infinite;
+  animation:
+    moveG 6s ease-in-out infinite,
+    revealClip 6s ease-in-out infinite,
+    fadeOut 6s ease-in-out infinite;
 }
 
 @keyframes moveG {
   0%, 15%   { transform: translateX(0); }
-  25%, 85%  { transform: translateX(-64px); }
-  95%, 100% { transform: translateX(0); }
-}
-@keyframes moveK6 {
-  0%, 15%   { transform: translateX(0); }
-  25%, 85%  { transform: translateX(128px); }
-  95%, 100% { transform: translateX(0); }
-}
-@keyframes revealClip {
-  0%, 15%   { clip-path: inset(0 100% 0 0); }
-  25%, 85%  { clip-path: inset(0 0% 0 0); }
-  95%, 100% { clip-path: inset(0 100% 0 0); }
-}
-@keyframes fadeOut {
-  0%, 70%   { opacity: 1; }
-  85%, 100% { opacity: 0; }
+  25%, 70%  { transform: translateX(-64px); }
+  85%, 100% { transform: translateX(0); }
 }
 
-/* Star twinkle */
+@keyframes moveK6 {
+  0%, 15%   { transform: translateX(0); }
+  25%, 70%  { transform: translateX(128px); }
+  85%, 100% { transform: translateX(0); }
+}
+
+@keyframes revealClip {
+  0%, 15%   { clip-path: inset(0 100% 0 0); }
+  25%, 70%  { clip-path: inset(0 0% 0 0); }
+  85%, 100% { clip-path: inset(0 100% 0 0); }
+}
+
+@keyframes fadeOut {
+  0%, 58%   { opacity: 1; }
+  70%, 100% { opacity: 0; }
+}
+
 .star {
   fill: #ffe34c;
-  animation: twinkle 10s infinite ease-in-out alternate;
+  animation: twinkle 6s infinite ease-in-out alternate;
 }
+
 @keyframes twinkle {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
+}
+
+.firework {
+  fill: #ff2e63;
+  opacity: 0;
+  transform-origin: center;
+  animation: fireworkBurst 6s ease-in-out infinite;
+}
+
+@keyframes fireworkBurst {
+  0%, 24%, 71%, 100% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  25%, 30%, 35% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+  40%, 70% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+.firework {
+  opacity: 0;
+  r: 2;
+}
+
+.firework.red {
+  fill: #ff3c38;
+  animation: fireworkArcRed 10s ease-in-out infinite;
+}
+
+.firework.blue {
+  fill: #3c9fff;
+  animation: fireworkArcBlue 10s ease-in-out infinite;
+}
+
+.firework.green {
+  fill: #2dd36f;
+  animation: fireworkArcGreen 10s ease-in-out infinite;
+}
+
+.firework.yellow {
+  fill: #ffc400;
+  animation: fireworkArcYellow 10s ease-in-out infinite;
+}
+
+@keyframes fireworkArcRed {
+  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 1; transform: translate(-60px, -30px); }
+  35% { transform: translate(-50px, -60px); }
+  50% { transform: translate(-40px, -30px); }
+  70% { opacity: 1; transform: translate(0, 0); }
+  85% { opacity: 0; }
+}
+
+@keyframes fireworkArcBlue {
+  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 1; transform: translate(80px, -20px); }
+  40% { transform: translate(60px, -60px); }
+  60% { transform: translate(40px, -30px); }
+  70% { opacity: 1; transform: translate(0, 0); }
+  85% { opacity: 0; }
+}
+
+@keyframes fireworkArcGreen {
+  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 1; transform: translate(-20px, -20px); }
+  40% { transform: translate(0px, -50px); }
+  60% { transform: translate(20px, -20px); }
+  70% { opacity: 1; transform: translate(0, 0); }
+  85% { opacity: 0; }
+}
+
+@keyframes fireworkArcYellow {
+  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
+  25% { opacity: 1; transform: translate(10px, -30px); }
+  40% { transform: translate(30px, -50px); }
+  60% { transform: translate(50px, -10px); }
+  70% { opacity: 1; transform: translate(0, 0); }
+  85% { opacity: 0; }
+}
+
+@keyframes riseAndDrop {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
 }
