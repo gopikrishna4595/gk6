@@ -1,61 +1,43 @@
 
-.firework-group circle {
-  animation: shoot 2s ease-in-out infinite;
-  opacity: 0.9;
-  transform-origin: center;
-}
-
-.firework-group rect.confetti {
-  animation: fallWiggle 3s ease-in infinite;
-  transform-origin: center;
-}
-
-@keyframes shoot {
-  0% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-  30% {
-    transform: translateY(-80px);
-  }
-  60% {
-    transform: translateY(30px);
-  }
-  100% {
-    transform: translateY(80px);
-    opacity: 0;
-  }
-}
-
-@keyframes fallWiggle {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(100px) rotate(180deg);
-  }
-  100% {
-    transform: translateY(200px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.color1 { fill: red; }
-.color2 { fill: blue; }
-.color3 { fill: green; }
-.color4 { fill: yellow; }
-.color5 { fill: orange; }
-
 .letter {
-  font-family: 'Courier New', monospace;
-  font-size: 2.8rem;
+  font-size: 40px;
+  font-family: monospace;
   fill: black;
-  animation: pulseText 3s ease-in-out infinite;
+}
+.burning {
+  text-shadow: 0 0 5px orange;
 }
 
-@keyframes pulseText {
-  0% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
-  100% { opacity: 0.7; transform: scale(1); }
+.generate-group text {
+  animation: slideInOut 3s ease-in-out infinite;
+}
+
+@keyframes slideInOut {
+  0%, 100% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(-30px); opacity: 0.6; }
+}
+
+.firework {
+  animation: shootUp 2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes shootUp {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-40px); opacity: 1; }
+  100% { transform: translateY(60px); opacity: 0; }
+}
+
+.confetti {
+  animation: fall 3s linear infinite, wiggle 1s ease-in-out infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(120px); opacity: 0; }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
 }
