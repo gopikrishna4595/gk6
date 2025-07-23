@@ -25,8 +25,8 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   </g>
 
   <!-- g and k6 burning -->
-  <text x="300" y="60" class="letter g burning">g</text>
-  <text x="332" y="60" class="letter k6 burning">k6</text>
+  <text x="350" y="60" class="letter g burning">g</text>
+  <text x="385" y="60" class="letter k6 burning">k6</text>
 
   <!-- Reveal en- e-r-a-t-e -->
   <g class="generate-group">
