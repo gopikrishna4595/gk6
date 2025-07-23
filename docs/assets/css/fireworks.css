@@ -1,10 +1,9 @@
-/* Enhanced Fireworks CSS for gk6 */
-
 .letter {
   font: 900 48px 'Fira Code', monospace;
   fill: #000;
   letter-spacing: -1px;
   dominant-baseline: middle;
+  text-shadow: 0 0 1px #ffaa33;
 }
 
 .burning {
@@ -32,10 +31,14 @@
 
 .g {
   animation: moveG 10s ease-in-out infinite;
+  font-weight: 900;
 }
+
 .k6 {
   animation: moveK6 10s ease-in-out infinite;
+  font-weight: 900;
 }
+
 .generate-group {
   clip-path: inset(0 100% 0 0);
   opacity: 0;
@@ -46,14 +49,14 @@
 }
 
 @keyframes moveG {
-  0%, 15% { transform: translateX(0); }
-  25%, 85% { transform: translateX(-64px); }
+  0%, 15%   { transform: translateX(0); }
+  25%, 85%  { transform: translateX(-64px); }
   95%, 100% { transform: translateX(0); }
 }
 
 @keyframes moveK6 {
-  0%, 15% { transform: translateX(0); }
-  25%, 85% { transform: translateX(128px); }
+  0%, 15%   { transform: translateX(0); }
+  25%, 85%  { transform: translateX(128px); }
   95%, 100% { transform: translateX(0); }
 }
 
@@ -78,65 +81,73 @@
   50% { opacity: 1; }
 }
 
-/* FIREWORKS */
-
 .firework {
-  r: 1.8;
   opacity: 0;
   transform-origin: center;
 }
 
-.firework.red    { fill: #ff2e63; }
-.firework.green  { fill: #28df99; }
-.firework.blue   { fill: #00bfff; }
-.firework.yellow { fill: #f6e58d; }
-
-.firework.vertical1 { animation: verticalFireworkUp1 3s ease-in-out infinite; }
-.firework.vertical2 { animation: verticalFireworkUp2 3s ease-in-out infinite; }
-.firework.vertical3 { animation: verticalFireworkUp3 3s ease-in-out infinite; }
-
-.firework.arc1 { animation: arcFireworkLeft 3s ease-in-out infinite; }
-.firework.arc2 { animation: arcFireworkRight 3s ease-in-out infinite; }
-.firework.arc3 { animation: arcFireworkMid 3s ease-in-out infinite; }
-
-@keyframes verticalFireworkUp1 {
-  0%   { opacity: 0; transform: translateY(0) scale(0.5); }
-  10%  { opacity: 1; }
-  50%  { transform: translateY(-60px) scale(1.5); opacity: 0.8; }
-  100% { opacity: 0; transform: translateY(-90px) scale(0.3); }
+/* Arc-style fireworks */
+.firework.arc {
+  animation: arcBurst 10s infinite ease-in-out;
 }
 
-@keyframes verticalFireworkUp2 {
-  0%   { opacity: 0; transform: translateY(0) scale(0.4); }
-  10%  { opacity: 1; }
-  60%  { transform: translateY(-80px) scale(1.6); opacity: 0.7; }
-  100% { opacity: 0; transform: translateY(-100px) scale(0.3); }
+@keyframes arcBurst {
+  0%, 10%, 100% {
+    opacity: 0;
+    transform: scale(0.2) translateY(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2) translate(-20px, -60px);
+  }
+  50% {
+    transform: scale(1) translate(0px, -90px);
+  }
+  70% {
+    transform: scale(0.8) translate(20px, -60px);
+    opacity: 0;
+  }
 }
 
-@keyframes verticalFireworkUp3 {
-  0%   { opacity: 0; transform: translateY(0) scale(0.5); }
-  10%  { opacity: 1; }
-  40%  { transform: translateY(-70px) scale(1.3); opacity: 0.9; }
-  100% { opacity: 0; transform: translateY(-85px) scale(0.2); }
+/* Vertical-style fireworks */
+.firework.vertical {
+  animation: verticalBurst 10s infinite ease-in-out;
 }
 
-@keyframes arcFireworkLeft {
-  0%   { opacity: 0; transform: translate(0, 0) scale(0.4); }
-  10%  { opacity: 1; }
-  60%  { transform: translate(-40px, -40px) scale(1.2); opacity: 0.8; }
-  100% { opacity: 0; transform: translate(-60px, -70px) scale(0.2); }
+@keyframes verticalBurst {
+  0%, 10%, 100% {
+    opacity: 0;
+    transform: scale(0.2) translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.4) translateY(-90px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1) translateY(-120px);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-140px);
+  }
 }
 
-@keyframes arcFireworkRight {
-  0%   { opacity: 0; transform: translate(0, 0) scale(0.4); }
-  10%  { opacity: 1; }
-  60%  { transform: translate(40px, -40px) scale(1.2); opacity: 0.8; }
-  100% { opacity: 0; transform: translate(60px, -70px) scale(0.2); }
-}
+/* Colors */
+.red    { fill: #ff2e63; }
+.blue   { fill: #1e90ff; }
+green  { fill: #32cd32; }
+yellow { fill: #ffd700; }
+purple { fill: #da70d6; }
+cyan   { fill: #00ffff; }
 
-@keyframes arcFireworkMid {
-  0%   { opacity: 0; transform: translate(0, 0) scale(0.4); }
-  10%  { opacity: 1; }
-  60%  { transform: translate(0px, -50px) scale(1.4); opacity: 0.9; }
-  100% { opacity: 0; transform: translate(0px, -80px) scale(0.3); }
-}
+/* Random slight delay */
+.firework:nth-child(3n)   { animation-delay: 0.2s; }
+.firework:nth-child(4n)   { animation-delay: 0.4s; }
+.firework:nth-child(5n)   { animation-delay: 0.6s; }
+.firework:nth-child(6n)   { animation-delay: 0.8s; }
+
+/* Cluster control */
+.firework.left   { cx: 200; }
+.firework.center { cx: 400; }
+.firework.right  { cx: 600; }
