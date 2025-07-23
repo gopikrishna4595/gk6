@@ -1,196 +1,61 @@
 
----
-
-### 📄 `docs/assets/css/fireworks.css`
-
-```css
-.letter {
-  font: 900 48px 'Fira Code', monospace;
-  fill: #000;
-  font-weight: 900;
-  letter-spacing: -1px;
-  dominant-baseline: middle;
-  text-shadow: 0 0 1px #ffaa33;
-}
-
-.burning {
-  animation: burnEffect 6s ease-in-out infinite;
+.firework-group circle {
+  animation: shoot 2s ease-in-out infinite;
+  opacity: 0.9;
   transform-origin: center;
 }
 
-@keyframes burnEffect {
-  0%, 44%, 59%, 100% {
-    filter: none;
-    fill: #000;
-    transform: none;
-  }
-
-  45%, 48%, 52%, 56%, 58% {
-    fill: #ffaa33;
-    filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
-    transform: scaleY(1.05) translateY(-1px);
-  }
-
-  46%, 50%, 54% {
-    fill: #ffee99;
-    filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
-    transform: scaleY(0.96) translateY(1px);
-  }
-}
-
-.g {
-  animation: moveG 6s ease-in-out infinite;
-  font-weight: 900;
-}
-
-.k6 {
-  animation: moveK6 6s ease-in-out infinite;
-  font-weight: 900;
-}
-
-.generate-group {
-  clip-path: inset(0 100% 0 0);
-  opacity: 0;
-  animation:
-    moveG 6s ease-in-out infinite,
-    revealClip 6s ease-in-out infinite,
-    fadeOut 6s ease-in-out infinite;
-}
-
-@keyframes moveG {
-  0%, 15%   { transform: translateX(0); }
-  25%, 70%  { transform: translateX(-64px); }
-  85%, 100% { transform: translateX(0); }
-}
-
-@keyframes moveK6 {
-  0%, 15%   { transform: translateX(0); }
-  25%, 70%  { transform: translateX(128px); }
-  85%, 100% { transform: translateX(0); }
-}
-
-@keyframes revealClip {
-  0%, 15%   { clip-path: inset(0 100% 0 0); }
-  25%, 70%  { clip-path: inset(0 0% 0 0); }
-  85%, 100% { clip-path: inset(0 100% 0 0); }
-}
-
-@keyframes fadeOut {
-  0%, 58%   { opacity: 1; }
-  70%, 100% { opacity: 0; }
-}
-
-.star {
-  fill: #ffe34c;
-  animation: twinkle 6s infinite ease-in-out alternate;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
-
-.firework {
-  fill: #ff2e63;
-  opacity: 0;
+.firework-group rect.confetti {
+  animation: fallWiggle 3s ease-in infinite;
   transform-origin: center;
-  animation: fireworkBurst 6s ease-in-out infinite;
 }
 
-@keyframes fireworkBurst {
-  0%, 24%, 71%, 100% {
-    opacity: 0;
-    transform: scale(0.2);
-  }
-  25%, 30%, 35% {
-    opacity: 1;
-    transform: scale(1.6);
-  }
-  40%, 70% {
-    opacity: 0;
-    transform: scale(0.2);
-  }
-}
-
-.firework {
-  opacity: 0;
-  r: 2;
-}
-
-.firework.red {
-  fill: #ff3c38;
-  animation: fireworkArcRed 10s ease-in-out infinite;
-}
-
-.firework.blue {
-  fill: #3c9fff;
-  animation: fireworkArcBlue 10s ease-in-out infinite;
-}
-
-.firework.green {
-  fill: #2dd36f;
-  animation: fireworkArcGreen 10s ease-in-out infinite;
-}
-
-.firework.yellow {
-  fill: #ffc400;
-  animation: fireworkArcYellow 10s ease-in-out infinite;
-}
-
-@keyframes fireworkArcRed {
-  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
-  25% { opacity: 1; transform: translate(-60px, -30px); }
-  35% { transform: translate(-50px, -60px); }
-  50% { transform: translate(-40px, -30px); }
-  70% { opacity: 1; transform: translate(0, 0); }
-  85% { opacity: 0; }
-}
-
-@keyframes fireworkArcBlue {
-  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
-  25% { opacity: 1; transform: translate(80px, -20px); }
-  40% { transform: translate(60px, -60px); }
-  60% { transform: translate(40px, -30px); }
-  70% { opacity: 1; transform: translate(0, 0); }
-  85% { opacity: 0; }
-}
-
-@keyframes fireworkArcGreen {
-  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
-  25% { opacity: 1; transform: translate(-20px, -20px); }
-  40% { transform: translate(0px, -50px); }
-  60% { transform: translate(20px, -20px); }
-  70% { opacity: 1; transform: translate(0, 0); }
-  85% { opacity: 0; }
-}
-
-@keyframes fireworkArcYellow {
-  0%, 24%, 85%, 100% { opacity: 0; transform: translate(0, 0); }
-  25% { opacity: 1; transform: translate(10px, -30px); }
-  40% { transform: translate(30px, -50px); }
-  60% { transform: translate(50px, -10px); }
-  70% { opacity: 1; transform: translate(0, 0); }
-  85% { opacity: 0; }
-}
-
-@keyframes riseAndDrop {
+@keyframes shoot {
   0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  10% {
+    transform: translateY(0px);
     opacity: 1;
   }
-  25% {
-    transform: translateY(-20px);
-    opacity: 1;
+  30% {
+    transform: translateY(-80px);
   }
-  85% {
-    transform: translateY(20px);
-    opacity: 0;
+  60% {
+    transform: translateY(30px);
   }
   100% {
-    transform: translateY(20px);
+    transform: translateY(80px);
     opacity: 0;
   }
+}
+
+@keyframes fallWiggle {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(100px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.color1 { fill: red; }
+.color2 { fill: blue; }
+.color3 { fill: green; }
+.color4 { fill: yellow; }
+.color5 { fill: orange; }
+
+.letter {
+  font-family: 'Courier New', monospace;
+  font-size: 2.8rem;
+  fill: black;
+  animation: pulseText 3s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.7; transform: scale(1); }
 }
