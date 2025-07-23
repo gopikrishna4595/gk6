@@ -14,23 +14,6 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
       animation: burnEffect 10s ease-in-out infinite;
       transform-origin: center;
     }
-    @keyframes burnEffect {
-      0%, 44%, 85%, 100% {
-        filter: none;
-        fill: #fff;
-        transform: none;
-      }
-      45%, 48%, 52%, 56%, 58% {
-        fill: #ffaa33;
-        filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
-        transform: scaleY(1.05) translateY(-1px);
-      }
-      46%, 50%, 54% {
-        fill: #ffee99;
-        filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
-        transform: scaleY(0.96) translateY(1px);
-      }
-    }
     .g {
       animation: moveG 10s ease-in-out infinite;
     }
@@ -45,71 +28,21 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
         revealClip 10s ease-in-out infinite,
         fadeOut 10s ease-in-out infinite;
     }
-    @keyframes moveG {
-      0%, 15%   { transform: translateX(0); }
-      25%, 85%  { transform: translateX(-64px); }
-      95%, 100% { transform: translateX(0); }
-    }
-    @keyframes moveK6 {
-      0%, 15%   { transform: translateX(0); }
-      25%, 85%  { transform: translateX(128px); }
-      95%, 100% { transform: translateX(0); }
-    }
-    @keyframes revealClip {
-      0%, 15%   { clip-path: inset(0 100% 0 0); }
-      25%, 85%  { clip-path: inset(0 0% 0 0); }
-      95%, 100% { clip-path: inset(0 100% 0 0); }
-    }
-    @keyframes fadeOut {
-      0%, 70%   { opacity: 1; }
-      85%, 100% { opacity: 0; }
-    }
     .star {
       fill: #ffe34c;
       animation: twinkle 10s infinite ease-in-out alternate;
     }
-    @keyframes twinkle {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
     .firework {
+      animation: riseAndDrop 10s ease-in-out infinite;
+      transform-origin: center;
       opacity: 0;
-      r: 2;
     }
-    .arc1 {
-      animation: arc1 10s ease-in-out infinite;
-    }
-    .arc2 {
-      animation: arc2 10s ease-in-out infinite;
-    }
-    .arc3 {
-      animation: arc3 10s ease-in-out infinite;
-    }
-    .arc4 {
-      animation: arc4 10s ease-in-out infinite;
-    }
-
-    @keyframes arc1 {
-      25% { opacity: 1; transform: translate(-40px, -30px) scale(1.5); }
-      50% { opacity: 1; transform: translate(-60px, -70px) scale(1); }
-      85% { opacity: 0; transform: translate(-80px, -100px) scale(0.5); }
-    }
-    @keyframes arc2 {
-      28% { opacity: 1; transform: translate(50px, -20px) scale(1.2); }
-      55% { opacity: 1; transform: translate(70px, -60px) scale(1); }
-      85% { opacity: 0; transform: translate(90px, -90px) scale(0.5); }
-    }
-    @keyframes arc3 {
-      30% { opacity: 1; transform: translate(0, -40px) scale(1.4); }
-      55% { opacity: 1; transform: translate(-30px, -80px) scale(1); }
-      85% { opacity: 0; transform: translate(-50px, -110px) scale(0.5); }
-    }
-    @keyframes arc4 {
-      33% { opacity: 1; transform: translate(20px, -25px) scale(1.3); }
-      58% { opacity: 1; transform: translate(40px, -70px) scale(1); }
-      85% { opacity: 0; transform: translate(60px, -90px) scale(0.5); }
-    }
+    .red    { fill: #ff4d6d; }
+    .green  { fill: #53dd6c; }
+    .blue   { fill: #4dabf7; }
+    .yellow { fill: #ffd43b; }
+    .orange { fill: #ffa94d; }
+    .purple { fill: #da77f2; }
   </style>
 
   <!-- Stars -->
@@ -117,16 +50,6 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   <circle class="star" cx="300" cy="10" r="2"/>
   <circle class="star" cx="500" cy="30" r="2.5"/>
   <circle class="star" cx="150" cy="60" r="2"/>
-
-  <!-- Fireworks (behind text) -->
-  <circle class="firework arc1" cx="360" cy="80" fill="#ff2e63" />
-  <circle class="firework arc2" cx="370" cy="90" fill="#33cc33" />
-  <circle class="firework arc3" cx="390" cy="75" fill="#3399ff" />
-  <circle class="firework arc4" cx="410" cy="85" fill="#ffff66" />
-  <circle class="firework arc1" cx="430" cy="88" fill="#ff9900" />
-  <circle class="firework arc2" cx="450" cy="70" fill="#cc33cc" />
-  <circle class="firework arc3" cx="470" cy="95" fill="#00ccff" />
-  <circle class="firework arc4" cx="490" cy="78" fill="#ff3366" />
 
   <!-- g and k6 with burning effect during pause -->
   <text x="300" y="60" class="letter g burning">g</text>
@@ -142,6 +65,30 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="442" y="60" class="letter">t</text>
     <text x="466" y="60" class="letter">e</text>
     <text x="490" y="60" class="letter"> </text>
+  </g>
+
+  <!-- Firework Sparks (vertical rise/drop) -->
+  <g class="fireworks-layer">
+    <circle class="firework red" cx="300" cy="90" r="2" style="animation-delay: 0s;" />
+    <circle class="firework green" cx="310" cy="90" r="2" style="animation-delay: 0.2s;" />
+    <circle class="firework blue" cx="320" cy="90" r="2" style="animation-delay: 0.4s;" />
+    <circle class="firework yellow" cx="330" cy="90" r="2" style="animation-delay: 0.6s;" />
+    <circle class="firework orange" cx="340" cy="90" r="2" style="animation-delay: 0.8s;" />
+    <circle class="firework purple" cx="350" cy="90" r="2" style="animation-delay: 1s;" />
+    <circle class="firework red" cx="360" cy="90" r="2" style="animation-delay: 1.2s;" />
+    <circle class="firework green" cx="370" cy="90" r="2" style="animation-delay: 1.4s;" />
+    <circle class="firework blue" cx="380" cy="90" r="2" style="animation-delay: 1.6s;" />
+    <circle class="firework yellow" cx="390" cy="90" r="2" style="animation-delay: 1.8s;" />
+    <circle class="firework orange" cx="400" cy="90" r="2" style="animation-delay: 2s;" />
+    <circle class="firework purple" cx="410" cy="90" r="2" style="animation-delay: 2.2s;" />
+    <circle class="firework red" cx="420" cy="90" r="2" style="animation-delay: 2.4s;" />
+    <circle class="firework green" cx="430" cy="90" r="2" style="animation-delay: 2.6s;" />
+    <circle class="firework blue" cx="440" cy="90" r="2" style="animation-delay: 2.8s;" />
+    <circle class="firework yellow" cx="450" cy="90" r="2" style="animation-delay: 3s;" />
+    <circle class="firework orange" cx="460" cy="90" r="2" style="animation-delay: 3.2s;" />
+    <circle class="firework purple" cx="470" cy="90" r="2" style="animation-delay: 3.4s;" />
+    <circle class="firework red" cx="480" cy="90" r="2" style="animation-delay: 3.6s;" />
+    <circle class="firework green" cx="490" cy="90" r="2" style="animation-delay: 3.8s;" />
   </g>
 </svg>
 </div>
