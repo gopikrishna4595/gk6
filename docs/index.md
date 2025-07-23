@@ -24,53 +24,20 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Firework sparks -->
+  <!-- Firework sparks (will be expanded in CSS) -->
   <g class="firework-group">
-    <circle class="firework vertical red" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
-    <circle class="firework arc blue" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
-    <circle class="firework vertical green" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
-    <circle class="firework arc yellow" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
-    <circle class="firework vertical red" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
-    <circle class="firework arc blue" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
-    <circle class="firework vertical green" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
-    <circle class="firework arc yellow" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
-    <circle class="firework vertical red" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
-    <circle class="firework arc blue" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
-    <circle class="firework vertical green" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
-    <circle class="firework arc yellow" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
-    <circle class="firework vertical red" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
-    <circle class="firework arc blue" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
-    <circle class="firework vertical green" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
-    <circle class="firework arc yellow" cx="100" cy="60" r="2" style="animation-delay: 1.5s;" />
-    <circle class="firework vertical red" cx="145" cy="60" r="2" style="animation-delay: 1.6s;" />
-    <circle class="firework arc blue" cx="190" cy="60" r="2" style="animation-delay: 1.7s;" />
-    <circle class="firework vertical green" cx="235" cy="60" r="2" style="animation-delay: 1.8s;" />
-    <circle class="firework arc yellow" cx="280" cy="60" r="2" style="animation-delay: 1.9s;" />
-    <circle class="firework vertical red" cx="325" cy="60" r="2" style="animation-delay: 2.0s;" />
-    <circle class="firework arc blue" cx="370" cy="60" r="2" style="animation-delay: 2.1s;" />
-    <circle class="firework vertical green" cx="415" cy="60" r="2" style="animation-delay: 2.2s;" />
-    <circle class="firework arc yellow" cx="460" cy="60" r="2" style="animation-delay: 2.3s;" />
-    <circle class="firework vertical red" cx="505" cy="60" r="2" style="animation-delay: 2.4s;" />
-    <circle class="firework arc blue" cx="550" cy="60" r="2" style="animation-delay: 2.5s;" />
-    <circle class="firework vertical green" cx="595" cy="60" r="2" style="animation-delay: 2.6s;" />
-    <circle class="firework arc yellow" cx="640" cy="60" r="2" style="animation-delay: 2.7s;" />
-    <circle class="firework vertical red" cx="685" cy="60" r="2" style="animation-delay: 2.8s;" />
-    <circle class="firework arc blue" cx="730" cy="60" r="2" style="animation-delay: 2.9s;" />
-    <circle class="firework vertical green" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
-    <circle class="firework arc yellow" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
-    <circle class="firework vertical red" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
-    <circle class="firework arc blue" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
-    <circle class="firework vertical green" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
-    <circle class="firework arc yellow" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
-    <circle class="firework vertical red" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
-    <circle class="firework arc blue" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
-    <circle class="firework vertical green" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
-    <circle class="firework arc yellow" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
-    <circle class="firework vertical red" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
-    <circle class="firework arc blue" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
-    <circle class="firework vertical green" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
-    <circle class="firework arc yellow" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
-    <circle class="firework vertical red" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
+    <!-- Left cluster -->
+    <circle class="firework red vertical" cx="180" cy="60" r="2"/>
+    <circle class="firework blue arc" cx="190" cy="60" r="2"/>
+    <circle class="firework green arc" cx="200" cy="60" r="2"/>
+    <!-- Center cluster -->
+    <circle class="firework yellow vertical" cx="360" cy="60" r="2"/>
+    <circle class="firework green arc" cx="370" cy="60" r="2"/>
+    <circle class="firework red arc" cx="380" cy="60" r="2"/>
+    <!-- Right cluster -->
+    <circle class="firework blue vertical" cx="540" cy="60" r="2"/>
+    <circle class="firework yellow arc" cx="550" cy="60" r="2"/>
+    <circle class="firework green arc" cx="560" cy="60" r="2"/>
   </g>
 </svg>
 </div>
@@ -88,18 +55,18 @@ No rewrites. No duct tape. Just pure Python + performance clarity.
 
 **gk6** reads your Postman collection and:
 
-- 🌪️ Detects `pm.environment.set()` like a bloodhound on Red Bull  
+- 🌪️ Detects pm.environment.set() like a bloodhound on Red Bull  
 - 🔗 Follows variable chaining across tests and folders  
-- 🧬 Converts `{{envVars}}` to `__ENV.` or chained values for k6  
-- 📊 Adds `Trend` metrics + response checks for every request  
-- ⚙️ Outputs clean, executable `.js` files and optional `.env` config
+- 🧬 Converts {{envVars}} to __ENV. or chained values for k6  
+- 📊 Adds Trend metrics + response checks for every request  
+- ⚙️ Outputs clean, executable .js files and optional .env config
 
 ---
 
 ## ⚠️ Known Limitations
 
 - ❌ No support (yet) for GraphQL requests
-- 🧱 Doesn't currently handle `pm.globals.set()`
+- 🧱 Doesn't currently handle pm.globals.set()
 - 🌪️ Assumes all requests are RESTful and JSON-friendly
 - 🔗 Variable chaining that spans *multiple levels* may not fully resolve
 - 👻 If your Postman script is a spaghetti monster — it’ll still be spaghetti in k6
@@ -108,7 +75,7 @@ No rewrites. No duct tape. Just pure Python + performance clarity.
 
 ## 🚀 Quick Usage
 
-```bash
+bash
 python gk6.py \
   --collection my_collection.json \
   --environment my_env.json \
@@ -116,7 +83,7 @@ python gk6.py \
   --output test_script.js
 
 k6 run test_script.js
-```
+
 
 ---
 
