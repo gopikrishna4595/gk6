@@ -3,33 +3,88 @@ layout: default
 title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 <div style="text-align:center; margin-bottom: 1rem;">
-<svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg" class="fireworks-svg">
-  <!-- BACKGROUND FIREWORK SPARKS -->
-  <circle class="firework arc1 red" cx="360" cy="100" />
-  <circle class="firework arc2 blue" cx="400" cy="100" />
-  <circle class="firework arc3 green" cx="440" cy="100" />
-  <circle class="firework arc4 yellow" cx="380" cy="100" />
-  <circle class="firework arc2 pink" cx="420" cy="100" />
-  <circle class="firework arc3 cyan" cx="395" cy="100" />
-  <circle class="firework arc1 orange" cx="410" cy="100" />
+<svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .letter {
+      font: bold 48px 'Fira Code', monospace;
+      fill: #000;
+      dominant-baseline: middle;
+    }
+    .burning {
+      animation: burnEffect 10s ease-in-out infinite;
+      transform-origin: center;
+    }
+    @keyframes burnEffect {
+      0%, 44%, 85%, 100% {
+        filter: none;
+        fill: #fff;
+        transform: none;
+      }
+      45%, 48%, 52%, 56%, 58% {
+        fill: #ffaa33;
+        filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
+        transform: scaleY(1.05) translateY(-1px);
+      }
+      46%, 50%, 54% {
+        fill: #ffee99;
+        filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
+        transform: scaleY(0.96) translateY(1px);
+      }
+    }
+    .g {
+      animation: moveG 10s ease-in-out infinite;
+    }
+    .k6 {
+      animation: moveK6 10s ease-in-out infinite;
+    }
+    .generate-group {
+      clip-path: inset(0 100% 0 0);
+      opacity: 0;
+      animation:
+        moveG 10s ease-in-out infinite,
+        revealClip 10s ease-in-out infinite,
+        fadeOut 10s ease-in-out infinite;
+    }
+    @keyframes moveG {
+      0%, 15%   { transform: translateX(0); }
+      25%, 85%  { transform: translateX(-64px); }
+      95%, 100% { transform: translateX(0); }
+    }
+    @keyframes moveK6 {
+      0%, 15%   { transform: translateX(0); }
+      25%, 85%  { transform: translateX(128px); }
+      95%, 100% { transform: translateX(0); }
+    }
+    @keyframes revealClip {
+      0%, 15%   { clip-path: inset(0 100% 0 0); }
+      25%, 85%  { clip-path: inset(0 0% 0 0); }
+      95%, 100% { clip-path: inset(0 100% 0 0); }
+    }
+    @keyframes fadeOut {
+      0%, 70%   { opacity: 1; }
+      85%, 100% { opacity: 0; }
+    }
+    .star {
+      fill: #ffe34c;
+      animation: twinkle 10s infinite ease-in-out alternate;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+  </style>
 
-  <circle class="firework vertical1 blue" cx="350" cy="100" />
-  <circle class="firework vertical2 red" cx="370" cy="100" />
-  <circle class="firework vertical3 green" cx="390" cy="100" />
-  <circle class="firework vertical1 yellow" cx="410" cy="100" />
-  <circle class="firework vertical2 purple" cx="430" cy="100" />
-  <circle class="firework vertical3 pink" cx="450" cy="100" />
-
-  <!-- Stars (static twinkles) -->
+  <!-- Stars -->
   <circle class="star" cx="50" cy="20" r="3"/>
   <circle class="star" cx="300" cy="10" r="2"/>
   <circle class="star" cx="500" cy="30" r="2.5"/>
   <circle class="star" cx="150" cy="60" r="2"/>
 
-  <!-- SLIDING TEXT (gk6 + generate) -->
+  <!-- g and k6 with burning effect during pause -->
   <text x="300" y="60" class="letter g burning">g</text>
   <text x="332" y="60" class="letter k6 burning">k6</text>
 
+  <!-- 'enerate ' moves with 'g' and reveals -->
   <g class="generate-group">
     <text x="322" y="60" class="letter">e</text>
     <text x="346" y="60" class="letter">n</text>
