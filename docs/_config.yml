@@ -3,11 +3,13 @@ description: k6’s secret weapon for converting Postman collections
 theme: jekyll-theme-minimal
 markdown: kramdown
 
-# Enable custom CSS
+# Inject custom <head> code
+include:
+  - _includes/head-custom.html
+
 defaults:
   -
     scope:
       path: ""
     values:
       layout: default
-      css: "/gk6/assets/css/fireworks.css"
