@@ -4,9 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title }}</title>
-  {% if page.css %}
-    <link rel="stylesheet" href="{{ page.css }}">
-  {% endif %}
+  <link rel="stylesheet" href="/gk6/assets/css/fireworks.css" />
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+      background-color: #0d1117;
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
+    }
+    a {
+      color: #58a6ff;
+    }
+    pre {
+      background: #161b22;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
   {{ content }}
