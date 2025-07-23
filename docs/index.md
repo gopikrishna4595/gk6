@@ -11,11 +11,11 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
       dominant-baseline: middle;
     }
     .burning {
-      animation: burnEffect 6s ease-in-out infinite;
+      animation: burnEffect 10s ease-in-out infinite;
       transform-origin: center;
     }
     @keyframes burnEffect {
-      0%, 44%, 59%, 100% {
+      0%, 44%, 85%, 100% {
         filter: none;
         fill: #fff;
         transform: none;
@@ -32,55 +32,101 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
       }
     }
     .g {
-      animation: moveG 6s ease-in-out infinite;
+      animation: moveG 10s ease-in-out infinite;
     }
     .k6 {
-      animation: moveK6 6s ease-in-out infinite;
+      animation: moveK6 10s ease-in-out infinite;
     }
     .generate-group {
       clip-path: inset(0 100% 0 0);
       opacity: 0;
       animation:
-        moveG 6s ease-in-out infinite,
-        revealClip 6s ease-in-out infinite,
-        fadeOut 6s ease-in-out infinite;
+        moveG 10s ease-in-out infinite,
+        revealClip 10s ease-in-out infinite,
+        fadeOut 10s ease-in-out infinite;
     }
     @keyframes moveG {
       0%, 15%   { transform: translateX(0); }
-      25%, 70%  { transform: translateX(-64px); }
-      85%, 100% { transform: translateX(0); }
+      25%, 85%  { transform: translateX(-64px); }
+      95%, 100% { transform: translateX(0); }
     }
     @keyframes moveK6 {
       0%, 15%   { transform: translateX(0); }
-      25%, 70%  { transform: translateX(128px); }
-      85%, 100% { transform: translateX(0); }
+      25%, 85%  { transform: translateX(128px); }
+      95%, 100% { transform: translateX(0); }
     }
     @keyframes revealClip {
       0%, 15%   { clip-path: inset(0 100% 0 0); }
-      25%, 70%  { clip-path: inset(0 0% 0 0); }
-      85%, 100% { clip-path: inset(0 100% 0 0); }
+      25%, 85%  { clip-path: inset(0 0% 0 0); }
+      95%, 100% { clip-path: inset(0 100% 0 0); }
     }
     @keyframes fadeOut {
-      0%, 58%   { opacity: 1; }
-      70%, 100% { opacity: 0; }
+      0%, 70%   { opacity: 1; }
+      85%, 100% { opacity: 0; }
     }
     .star {
       fill: #ffe34c;
-      animation: twinkle 6s infinite ease-in-out alternate;
+      animation: twinkle 10s infinite ease-in-out alternate;
     }
     @keyframes twinkle {
       0%, 100% { opacity: 0.4; }
       50% { opacity: 1; }
     }
-  </style>
 
-  <!-- Transparent Background (no rect!) -->
+    .firework {
+      opacity: 0;
+      r: 2;
+    }
+    .arc1 {
+      animation: arc1 10s ease-in-out infinite;
+    }
+    .arc2 {
+      animation: arc2 10s ease-in-out infinite;
+    }
+    .arc3 {
+      animation: arc3 10s ease-in-out infinite;
+    }
+    .arc4 {
+      animation: arc4 10s ease-in-out infinite;
+    }
+
+    @keyframes arc1 {
+      25% { opacity: 1; transform: translate(-40px, -30px) scale(1.5); }
+      50% { opacity: 1; transform: translate(-60px, -70px) scale(1); }
+      85% { opacity: 0; transform: translate(-80px, -100px) scale(0.5); }
+    }
+    @keyframes arc2 {
+      28% { opacity: 1; transform: translate(50px, -20px) scale(1.2); }
+      55% { opacity: 1; transform: translate(70px, -60px) scale(1); }
+      85% { opacity: 0; transform: translate(90px, -90px) scale(0.5); }
+    }
+    @keyframes arc3 {
+      30% { opacity: 1; transform: translate(0, -40px) scale(1.4); }
+      55% { opacity: 1; transform: translate(-30px, -80px) scale(1); }
+      85% { opacity: 0; transform: translate(-50px, -110px) scale(0.5); }
+    }
+    @keyframes arc4 {
+      33% { opacity: 1; transform: translate(20px, -25px) scale(1.3); }
+      58% { opacity: 1; transform: translate(40px, -70px) scale(1); }
+      85% { opacity: 0; transform: translate(60px, -90px) scale(0.5); }
+    }
+  </style>
 
   <!-- Stars -->
   <circle class="star" cx="50" cy="20" r="3"/>
   <circle class="star" cx="300" cy="10" r="2"/>
   <circle class="star" cx="500" cy="30" r="2.5"/>
   <circle class="star" cx="150" cy="60" r="2"/>
+
+  <!-- Fireworks (behind text) -->
+  <circle class="firework arc1" cx="360" cy="80" fill="#ff2e63" />
+  <circle class="firework arc2" cx="370" cy="90" fill="#33cc33" />
+  <circle class="firework arc3" cx="390" cy="75" fill="#3399ff" />
+  <circle class="firework arc4" cx="410" cy="85" fill="#ffff66" />
+  <circle class="firework arc1" cx="430" cy="88" fill="#ff9900" />
+  <circle class="firework arc2" cx="450" cy="70" fill="#cc33cc" />
+  <circle class="firework arc3" cx="470" cy="95" fill="#00ccff" />
+  <circle class="firework arc4" cx="490" cy="78" fill="#ff3366" />
 
   <!-- g and k6 with burning effect during pause -->
   <text x="300" y="60" class="letter g burning">g</text>
@@ -109,11 +155,11 @@ No rewrites. No duct tape. Just pure Python + performance clarity.
 
 ---
 
-## 🔥 What Does gk6 Actually Do?
+## 🚀 What Does gk6 Actually Do?
 
 **gk6** reads your Postman collection and:
 
-- 🧪 Detects `pm.environment.set()` like a bloodhound on Red Bull  
+- 🌪️ Detects `pm.environment.set()` like a bloodhound on Red Bull  
 - 🔗 Follows variable chaining across tests and folders  
 - 🧬 Converts `{{envVars}}` to `__ENV.` or chained values for k6  
 - 📊 Adds `Trend` metrics + response checks for every request  
@@ -125,7 +171,7 @@ No rewrites. No duct tape. Just pure Python + performance clarity.
 
 - ❌ No support (yet) for GraphQL requests
 - 🧱 Doesn't currently handle `pm.globals.set()`
-- 🧪 Assumes all requests are RESTful and JSON-friendly
+- 🌪️ Assumes all requests are RESTful and JSON-friendly
 - 🔗 Variable chaining that spans *multiple levels* may not fully resolve
 - 👻 If your Postman script is a spaghetti monster — it’ll still be spaghetti in k6
 
@@ -140,9 +186,9 @@ python gk6.py \
   --select 1,2,3 \
   --output test_script.js
 
-k6 run test_script.js ```
+k6 run test_script.js
+```
 
 ---
-
 
 Got questions or feedback? Raise an issue — or better yet, a PR 😎
