@@ -7,7 +7,7 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   <style>
     .letter {
       font: bold 48px 'Fira Code', monospace;
-      fill: #fff;
+      fill: #000;
       dominant-baseline: middle;
     }
     .burning {
