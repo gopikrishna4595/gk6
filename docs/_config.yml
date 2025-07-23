@@ -10,4 +10,4 @@ defaults:
       path: ""
     values:
       layout: default
-      css: "/gk6/docs/assets/style.css"
+      css: "/gk6/assets/css/fireworks.css"
