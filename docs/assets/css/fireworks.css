@@ -1,153 +1,31 @@
-.letter {
-  font: 900 48px 'Fira Code', monospace;
-  fill: #000;
-  letter-spacing: -1px;
-  dominant-baseline: middle;
-  text-shadow: 0 0 1px #ffaa33;
-}
-
-.burning {
-  animation: burnEffect 10s ease-in-out infinite;
-  transform-origin: center;
-}
-
-@keyframes burnEffect {
-  0%, 44%, 85%, 100% {
-    filter: none;
-    fill: #000;
-    transform: none;
-  }
-  45%, 48%, 52%, 56%, 58% {
-    fill: #ffaa33;
-    filter: drop-shadow(0 0 2px #ffaa33) drop-shadow(0 0 4px #ffdd55);
-    transform: scaleY(1.05) translateY(-1px);
-  }
-  46%, 50%, 54% {
-    fill: #ffee99;
-    filter: drop-shadow(0 0 3px #ffcc33) drop-shadow(0 0 6px #ff6600);
-    transform: scaleY(0.96) translateY(1px);
-  }
-}
-
-.g {
-  animation: moveG 10s ease-in-out infinite;
-  font-weight: 900;
-}
-
-.k6 {
-  animation: moveK6 10s ease-in-out infinite;
-  font-weight: 900;
-}
-
-.generate-group {
-  clip-path: inset(0 100% 0 0);
-  opacity: 0;
-  animation:
-    moveG 10s ease-in-out infinite,
-    revealClip 10s ease-in-out infinite,
-    fadeOut 10s ease-in-out infinite;
-}
-
-@keyframes moveG {
-  0%, 15%   { transform: translateX(0); }
-  25%, 85%  { transform: translateX(-64px); }
-  95%, 100% { transform: translateX(0); }
-}
-
-@keyframes moveK6 {
-  0%, 15%   { transform: translateX(0); }
-  25%, 85%  { transform: translateX(128px); }
-  95%, 100% { transform: translateX(0); }
-}
-
-@keyframes revealClip {
-  0%, 15%   { clip-path: inset(0 100% 0 0); }
-  25%, 85%  { clip-path: inset(0 0% 0 0); }
-  95%, 100% { clip-path: inset(0 100% 0 0); }
-}
-
-@keyframes fadeOut {
-  0%, 70%   { opacity: 1; }
-  85%, 100% { opacity: 0; }
-}
-
-.star {
-  fill: #ffe34c;
-  animation: twinkle 10s infinite ease-in-out alternate;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
-}
 
 .firework {
-  opacity: 0;
-  transform-origin: center;
+  position: absolute;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
 }
 
-/* Arc-style fireworks */
-.firework.arc {
-  animation: arcBurst 10s infinite ease-in-out;
-}
-
-@keyframes arcBurst {
-  0%, 10%, 100% {
-    opacity: 0;
-    transform: scale(0.2) translateY(0);
-  }
-  25% {
-    opacity: 1;
-    transform: scale(1.2) translate(-20px, -60px);
-  }
-  50% {
-    transform: scale(1) translate(0px, -90px);
-  }
-  70% {
-    transform: scale(0.8) translate(20px, -60px);
-    opacity: 0;
-  }
-}
-
-/* Vertical-style fireworks */
 .firework.vertical {
-  animation: verticalBurst 10s infinite ease-in-out;
+  animation-name: verticalSpark;
 }
 
-@keyframes verticalBurst {
-  0%, 10%, 100% {
-    opacity: 0;
-    transform: scale(0.2) translateY(0);
-  }
-  30% {
-    opacity: 1;
-    transform: scale(1.4) translateY(-90px);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1) translateY(-120px);
-  }
-  70% {
-    opacity: 0;
-    transform: scale(0.8) translateY(-140px);
-  }
+.firework.arc {
+  animation-name: arcSpark;
 }
 
-/* Colors */
-.red    { fill: #ff2e63; }
-.blue   { fill: #1e90ff; }
-green  { fill: #32cd32; }
-yellow { fill: #ffd700; }
-purple { fill: #da70d6; }
-cyan   { fill: #00ffff; }
+@keyframes verticalSpark {
+  0%   { transform: translateY(0); opacity: 1; }
+  30%  { transform: translateY(-40px); }
+  70%  { transform: translateY(20px); opacity: 0.6; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
 
-/* Random slight delay */
-.firework:nth-child(3n)   { animation-delay: 0.2s; }
-.firework:nth-child(4n)   { animation-delay: 0.4s; }
-.firework:nth-child(5n)   { animation-delay: 0.6s; }
-.firework:nth-child(6n)   { animation-delay: 0.8s; }
-
-/* Cluster control */
-.firework.left   { cx: 200; }
-.firework.center { cx: 400; }
-.firework.right  { cx: 600; }
+@keyframes arcSpark {
+  0%   { transform: translate(0, 0); opacity: 1; }
+  25%  { transform: translate(20px, -30px); }
+  50%  { transform: translate(30px, 0px); opacity: 0.8; }
+  75%  { transform: translate(15px, 20px); }
+  100% { transform: translate(0px, 40px); opacity: 0; }
+}
