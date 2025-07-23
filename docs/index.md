@@ -4,6 +4,7 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 <div style="text-align:center; margin-bottom: 1rem;">
 <svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg">
+
   <style>
     .letter {
       font: bold 48px 'Fira Code', monospace;
@@ -89,7 +90,7 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Flowerpot sparks -->
+  <!-- 120 fireworks sparks -->
   {% for x in (0..4) %}
     {% assign cx = 50 | plus: x | times: 50 %}
     {% for y in (0..5) %}
@@ -101,50 +102,3 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
   {% endfor %}
 </svg>
 </div>
-
----
-
-🧠 **Convert Postman collections into powerful [k6](https://k6.io) load test scripts — automatically.**  
-No rewrites. No duct tape. Just pure Python + performance clarity.
-
-[⭐ View on GitHub](https://github.com/gopikrishna4595/gk6)
-
----
-
-## 🚀 What Does gk6 Actually Do?
-
-**gk6** reads your Postman collection and:
-
-- 🌪️ Detects `pm.environment.set()` like a bloodhound on Red Bull  
-- 🔗 Follows variable chaining across tests and folders  
-- 🧬 Converts `{{envVars}}` to `__ENV.` or chained values for k6  
-- 📊 Adds `Trend` metrics + response checks for every request  
-- ⚙️ Outputs clean, executable `.js` files and optional `.env` config
-
----
-
-## ⚠️ Known Limitations
-
-- ❌ No support (yet) for GraphQL requests
-- 🧱 Doesn't currently handle `pm.globals.set()`
-- 🌪️ Assumes all requests are RESTful and JSON-friendly
-- 🔗 Variable chaining that spans *multiple levels* may not fully resolve
-- 👻 If your Postman script is a spaghetti monster — it’ll still be spaghetti in k6
-
----
-
-## 🚀 Quick Usage
-
-```bash
-python gk6.py \
-  --collection my_collection.json \
-  --environment my_env.json \
-  --select 1,2,3 \
-  --output test_script.js
-
-k6 run test_script.js
-```
-
----
-
-Got questions or feedback? Raise an issue — or better yet, a PR 😎
