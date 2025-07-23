@@ -1,43 +1,28 @@
-
-.letter {
-  font-size: 40px;
-  font-family: monospace;
-  fill: black;
-}
-.burning {
-  text-shadow: 0 0 5px orange;
-}
-
-.generate-group text {
-  animation: slideInOut 3s ease-in-out infinite;
-}
-
-@keyframes slideInOut {
-  0%, 100% { transform: translateX(0); opacity: 1; }
-  50% { transform: translateX(-30px); opacity: 0.6; }
-}
-
 .firework {
-  animation: shootUp 2s ease-out forwards;
   opacity: 0;
+  r: 2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
-@keyframes shootUp {
-  0% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(-40px); opacity: 1; }
-  100% { transform: translateY(60px); opacity: 0; }
+.vertical {
+  animation-name: vertical-launch;
 }
 
-.confetti {
-  animation: fall 3s linear infinite, wiggle 1s ease-in-out infinite;
+.arc {
+  animation-name: arc-launch;
 }
 
-@keyframes fall {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(120px); opacity: 0; }
+@keyframes vertical-launch {
+  0%   { transform: translateY(0); opacity: 1; }
+  50%  { transform: translateY(-40px); opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(20deg); }
+@keyframes arc-launch {
+  0%   { transform: translate(0, 0); opacity: 1; }
+  50%  { transform: translate(15px, -30px); opacity: 1; }
+  100% { transform: translate(30px, 20px); opacity: 0; }
 }
