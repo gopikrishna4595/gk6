@@ -7,7 +7,10 @@
 .letter {
   font: 900 48px 'Fira Code', monospace;
   fill: #000;
+  font-weight: 900;
+  letter-spacing: -1px;
   dominant-baseline: middle;
+  text-shadow: 0 0 1px #ffaa33;
 }
 
 .burning {
