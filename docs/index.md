@@ -3,6 +3,46 @@ layout: default
 title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
 ---
 <div style="text-align:center; margin-bottom: 1rem;">
+<svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg" class="fireworks-svg">
+  <!-- BACKGROUND FIREWORK SPARKS -->
+  <circle class="firework arc1 red" cx="360" cy="100" />
+  <circle class="firework arc2 blue" cx="400" cy="100" />
+  <circle class="firework arc3 green" cx="440" cy="100" />
+  <circle class="firework arc4 yellow" cx="380" cy="100" />
+  <circle class="firework arc2 pink" cx="420" cy="100" />
+  <circle class="firework arc3 cyan" cx="395" cy="100" />
+  <circle class="firework arc1 orange" cx="410" cy="100" />
+
+  <circle class="firework vertical1 blue" cx="350" cy="100" />
+  <circle class="firework vertical2 red" cx="370" cy="100" />
+  <circle class="firework vertical3 green" cx="390" cy="100" />
+  <circle class="firework vertical1 yellow" cx="410" cy="100" />
+  <circle class="firework vertical2 purple" cx="430" cy="100" />
+  <circle class="firework vertical3 pink" cx="450" cy="100" />
+
+  <!-- Stars (static twinkles) -->
+  <circle class="star" cx="50" cy="20" r="3"/>
+  <circle class="star" cx="300" cy="10" r="2"/>
+  <circle class="star" cx="500" cy="30" r="2.5"/>
+  <circle class="star" cx="150" cy="60" r="2"/>
+
+  <!-- SLIDING TEXT (gk6 + generate) -->
+  <text x="300" y="60" class="letter g burning">g</text>
+  <text x="332" y="60" class="letter k6 burning">k6</text>
+
+  <g class="generate-group">
+    <text x="322" y="60" class="letter">e</text>
+    <text x="346" y="60" class="letter">n</text>
+    <text x="370" y="60" class="letter">e</text>
+    <text x="394" y="60" class="letter">r</text>
+    <text x="418" y="60" class="letter">a</text>
+    <text x="442" y="60" class="letter">t</text>
+    <text x="466" y="60" class="letter">e</text>
+    <text x="490" y="60" class="letter"> </text>
+  </g>
+</svg>
+</div>
+<div style="text-align:center; margin-bottom: 1rem;">
 <svg viewBox="0 0 800 120" width="90%" height="120" xmlns="http://www.w3.org/2000/svg">
   <!-- Fireworks (Arc and Vertical Bursts) -->
   <!-- Arc bursts -->
