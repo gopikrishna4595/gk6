@@ -24,72 +24,54 @@ title: ⚡️ gk6 – k6’s Secret Weapon for Postman Collections
     <text x="490" y="60" class="letter"> </text>
   </g>
 
-  <!-- Firework sparks (exactly 45 total) -->
-<g class="firework-group">
-  <!-- 5 clusters on the left -->
-  <circle class="firework red vertical" cx="120" cy="60" r="2"/>
-  <circle class="firework blue arc"     cx="130" cy="60" r="2"/>
-  <circle class="firework green arc"    cx="140" cy="60" r="2"/>
-
-  <circle class="firework red vertical" cx="150" cy="60" r="2"/>
-  <circle class="firework blue arc"     cx="160" cy="60" r="2"/>
-  <circle class="firework green arc"    cx="170" cy="60" r="2"/>
-
-  <circle class="firework red vertical" cx="180" cy="60" r="2"/>
-  <circle class="firework blue arc"     cx="190" cy="60" r="2"/>
-  <circle class="firework green arc"    cx="200" cy="60" r="2"/>
-
-  <circle class="firework red vertical" cx="210" cy="60" r="2"/>
-  <circle class="firework blue arc"     cx="220" cy="60" r="2"/>
-  <circle class="firework green arc"    cx="230" cy="60" r="2"/>
-
-  <circle class="firework red vertical" cx="240" cy="60" r="2"/>
-  <circle class="firework blue arc"     cx="250" cy="60" r="2"/>
-  <circle class="firework green arc"    cx="260" cy="60" r="2"/>
-
-  <!-- 5 clusters in the center -->
-  <circle class="firework yellow vertical" cx="330" cy="60" r="2"/>
-  <circle class="firework green arc"       cx="340" cy="60" r="2"/>
-  <circle class="firework red arc"         cx="350" cy="60" r="2"/>
-
-  <circle class="firework yellow vertical" cx="360" cy="60" r="2"/>
-  <circle class="firework green arc"       cx="370" cy="60" r="2"/>
-  <circle class="firework red arc"         cx="380" cy="60" r="2"/>
-
-  <circle class="firework yellow vertical" cx="390" cy="60" r="2"/>
-  <circle class="firework green arc"       cx="400" cy="60" r="2"/>
-  <circle class="firework red arc"         cx="410" cy="60" r="2"/>
-
-  <circle class="firework yellow vertical" cx="420" cy="60" r="2"/>
-  <circle class="firework green arc"       cx="430" cy="60" r="2"/>
-  <circle class="firework red arc"         cx="440" cy="60" r="2"/>
-
-  <circle class="firework yellow vertical" cx="450" cy="60" r="2"/>
-  <circle class="firework green arc"       cx="460" cy="60" r="2"/>
-  <circle class="firework red arc"         cx="470" cy="60" r="2"/>
-
-  <!-- 5 clusters on the right -->
-  <circle class="firework blue vertical" cx="540" cy="60" r="2"/>
-  <circle class="firework yellow arc"    cx="550" cy="60" r="2"/>
-  <circle class="firework green arc"     cx="560" cy="60" r="2"/>
-
-  <circle class="firework blue vertical" cx="570" cy="60" r="2"/>
-  <circle class="firework yellow arc"    cx="580" cy="60" r="2"/>
-  <circle class="firework green arc"     cx="590" cy="60" r="2"/>
-
-  <circle class="firework blue vertical" cx="600" cy="60" r="2"/>
-  <circle class="firework yellow arc"    cx="610" cy="60" r="2"/>
-  <circle class="firework green arc"     cx="620" cy="60" r="2"/>
-
-  <circle class="firework blue vertical" cx="630" cy="60" r="2"/>
-  <circle class="firework yellow arc"    cx="640" cy="60" r="2"/>
-  <circle class="firework green arc"     cx="650" cy="60" r="2"/>
-
-  <circle class="firework blue vertical" cx="660" cy="60" r="2"/>
-  <circle class="firework yellow arc"    cx="670" cy="60" r="2"/>
-  <circle class="firework green arc"     cx="680" cy="60" r="2"/>
-</g>
-
+  <!-- Firework sparks -->
+  <g class="firework-group">
+    <circle class="firework vertical red" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
+    <circle class="firework arc blue" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
+    <circle class="firework vertical green" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
+    <circle class="firework arc yellow" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
+    <circle class="firework vertical red" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
+    <circle class="firework arc blue" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
+    <circle class="firework vertical green" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
+    <circle class="firework arc yellow" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
+    <circle class="firework vertical red" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
+    <circle class="firework arc blue" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
+    <circle class="firework vertical green" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
+    <circle class="firework arc yellow" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
+    <circle class="firework vertical red" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
+    <circle class="firework arc blue" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
+    <circle class="firework vertical green" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
+    <circle class="firework arc yellow" cx="100" cy="60" r="2" style="animation-delay: 1.5s;" />
+    <circle class="firework vertical red" cx="145" cy="60" r="2" style="animation-delay: 1.6s;" />
+    <circle class="firework arc blue" cx="190" cy="60" r="2" style="animation-delay: 1.7s;" />
+    <circle class="firework vertical green" cx="235" cy="60" r="2" style="animation-delay: 1.8s;" />
+    <circle class="firework arc yellow" cx="280" cy="60" r="2" style="animation-delay: 1.9s;" />
+    <circle class="firework vertical red" cx="325" cy="60" r="2" style="animation-delay: 2.0s;" />
+    <circle class="firework arc blue" cx="370" cy="60" r="2" style="animation-delay: 2.1s;" />
+    <circle class="firework vertical green" cx="415" cy="60" r="2" style="animation-delay: 2.2s;" />
+    <circle class="firework arc yellow" cx="460" cy="60" r="2" style="animation-delay: 2.3s;" />
+    <circle class="firework vertical red" cx="505" cy="60" r="2" style="animation-delay: 2.4s;" />
+    <circle class="firework arc blue" cx="550" cy="60" r="2" style="animation-delay: 2.5s;" />
+    <circle class="firework vertical green" cx="595" cy="60" r="2" style="animation-delay: 2.6s;" />
+    <circle class="firework arc yellow" cx="640" cy="60" r="2" style="animation-delay: 2.7s;" />
+    <circle class="firework vertical red" cx="685" cy="60" r="2" style="animation-delay: 2.8s;" />
+    <circle class="firework arc blue" cx="730" cy="60" r="2" style="animation-delay: 2.9s;" />
+    <circle class="firework vertical green" cx="100" cy="60" r="2" style="animation-delay: 0.0s;" />
+    <circle class="firework arc yellow" cx="145" cy="60" r="2" style="animation-delay: 0.1s;" />
+    <circle class="firework vertical red" cx="190" cy="60" r="2" style="animation-delay: 0.2s;" />
+    <circle class="firework arc blue" cx="235" cy="60" r="2" style="animation-delay: 0.3s;" />
+    <circle class="firework vertical green" cx="280" cy="60" r="2" style="animation-delay: 0.4s;" />
+    <circle class="firework arc yellow" cx="325" cy="60" r="2" style="animation-delay: 0.5s;" />
+    <circle class="firework vertical red" cx="370" cy="60" r="2" style="animation-delay: 0.6s;" />
+    <circle class="firework arc blue" cx="415" cy="60" r="2" style="animation-delay: 0.7s;" />
+    <circle class="firework vertical green" cx="460" cy="60" r="2" style="animation-delay: 0.8s;" />
+    <circle class="firework arc yellow" cx="505" cy="60" r="2" style="animation-delay: 0.9s;" />
+    <circle class="firework vertical red" cx="550" cy="60" r="2" style="animation-delay: 1.0s;" />
+    <circle class="firework arc blue" cx="595" cy="60" r="2" style="animation-delay: 1.1s;" />
+    <circle class="firework vertical green" cx="640" cy="60" r="2" style="animation-delay: 1.2s;" />
+    <circle class="firework arc yellow" cx="685" cy="60" r="2" style="animation-delay: 1.3s;" />
+    <circle class="firework vertical red" cx="730" cy="60" r="2" style="animation-delay: 1.4s;" />
+  </g>
 </svg>
 </div>
 
