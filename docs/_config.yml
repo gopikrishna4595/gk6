@@ -1,0 +1,15 @@
+title: gk6
+description: k6’s secret weapon for converting Postman collections
+theme: jekyll-theme-minimal
+markdown: kramdown
+
+# Inject custom <head> code
+include:
+  - _includes/head-custom.html
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default

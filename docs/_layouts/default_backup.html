@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ✅ Link to your global stylesheet -->
+    <link rel="stylesheet" href="{{ '/assets/css/fireworks.css' | relative_url }}" />
+
+    <!-- Optional: Include site description if you want -->
+    {% if page.description %}
+      <meta name="description" content="{{ page.description }}">
+    {% endif %}
+  </head>
+  <body>
+    {{ content }}
+  </body>
+</html>
