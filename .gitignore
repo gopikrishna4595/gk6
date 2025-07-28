@@ -1,8 +1,24 @@
-# Ignore everything
+# Ignore everything by default
 **
 
-# Allow Python file
+# Allow Python source files and packages
 !**/*.py
 
-# Allow this .gitignore file
+# Allow all source folders
+!gk6/
+!tests/
+
+# Allow config and metadata
+!pyproject.toml
+!poetry.lock
+!Makefile
+!.pre-commit-config.yaml
+!README.md
+
+# Allow GitHub workflows
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
+
+# Allow .gitignore itself
 !.gitignore
