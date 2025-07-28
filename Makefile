@@ -10,7 +10,7 @@ format:		## Format code with black and autofix lint issues with ruff
 	poetry run black .
 
 lint:	## Lint without modifying code (e.g., in CI)
-	poetry run ruff .
+	poetry run ruff check .
 	poetry run black --check .
 
 type-check:		## Type check with mypy
