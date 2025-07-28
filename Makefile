@@ -44,6 +44,9 @@ release: ## Bump patch version, tag, and push
 	git tag v$$(poetry version -s)
 	git push && git push --tags
 
+security-check:		## Tells Bandit to scan the entire directory recursively, starting from the current directory
+	poetry run bandit -r gk6
+
 help: ## Show available make commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
