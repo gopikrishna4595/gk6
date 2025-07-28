@@ -40,10 +40,20 @@ jobs:
         run: make security-check
 
       - name: Tag Release
-        if: github.ref == 'refs/heads/main'
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           VERSION=$(poetry version -s)
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git tag -a "v$VERSION" -m "Release v$VERSION"
-          git push origin "v$VERSION"
+          git tag "v$VERSION"
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/gopikrishna4595/gk6.git "v$VERSION"
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        continue-on-error: false
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pypoetry
+          key: poetry-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            poetry-${{ runner.os }}-
