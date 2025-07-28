@@ -8,27 +8,24 @@ on:
 
 jobs:
   build:
-    name: Run Checks
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: 3.10
 
       - name: Install Poetry
         run: |
           curl -sSL https://install.python-poetry.org | python3 -
-          echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Install Dependencies
-        run: |
-          poetry install
-          poetry run pre-commit install
+        run: poetry install
 
       - name: Lint
         run: make lint
@@ -40,4 +37,13 @@ jobs:
         run: make test
 
       - name: Security Check
-        run: make security
+        run: make security-check
+
+      - name: Tag Release
+        if: github.ref == 'refs/heads/main'
+        run: |
+          VERSION=$(poetry version -s)
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git tag -a "v$VERSION" -m "Release v$VERSION"
+          git push origin "v$VERSION"
