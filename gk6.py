@@ -389,11 +389,20 @@ def main():
     parser = argparse.ArgumentParser(description="Convert Postman collection to k6 script.")
     parser.add_argument('--collection', required=True, help='Path to the Postman collection JSON file')
     parser.add_argument('--env', help='Path to the Postman environment file (optional)')
-    parser.add_argument('--all', action='store_true', help='Include all APIs in the collection')
-    parser.add_argument('--include', help='Comma-separated list of API indices to include (e.g. 1,3,5)')
+    
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--all', action='store_true', help='Include all APIs')
+    group.add_argument('--include', help='Comma-separated indices of APIs to include (e.g. 1,3,5)')
+    
+    parser.add_argument('--list', action='store_true', help='List available APIs in the collection and exit')
 
     args = parser.parse_args()
+    
+    # Enforce that one of --all or --include is required, unless using --list
+    if not args.list and not (args.all or args.include):
+        parser.error("One of --all or --include is required unless --list is used.")
 
+    # Load Postman collection
     try:
         with open(args.collection, 'r', encoding='utf-8') as file:
             postman_collection = json.load(file)
@@ -402,6 +411,16 @@ def main():
         print(f"❌ Error loading collection: {e}")
         return
 
+    # List APIs if requested
+    apis = list_apis(postman_collection)
+    print(f"\n📦 Found {len(apis)} APIs in the collection.")
+
+    if args.list:
+        for idx, api in enumerate(apis):
+            print(f"[{idx + 1}] {api['method']} {api['url']}  → {api['name']}")
+        return
+
+    # Load and write environment file
     if args.env:
         try:
             with open(args.env, 'r', encoding='utf-8') as file:
@@ -417,13 +436,10 @@ def main():
             print(f"❌ Error loading environment file: {e}")
             return
 
-    apis = list_apis(postman_collection)
-    print(f"\n📦 Found {len(apis)} APIs in the collection.")
-
+    # Determine selected APIs
     if args.all:
         selected_apis = apis
-        print("✅ --all flag set: All APIs included.")
-
+        print("✅ --all flag set: All APIs will be included.")
     elif args.include:
         try:
             selected_indices = [int(i.strip()) - 1 for i in args.include.split(',')]
@@ -433,18 +449,12 @@ def main():
             print(f"❌ Invalid --include input: {e}")
             return
 
-    else:
-        print("\nAvailable APIs:")
-        for idx, api in enumerate(apis):
-            print(f"[{idx + 1}]. {api['name']}  ({api['method']}  {api['url']})")
-        selected_indices_input = input("\nEnter the indices of the APIs to include (comma-separated): ")
-        selected_indices = [int(idx.strip()) - 1 for idx in selected_indices_input.split(',')]
-        selected_apis = [apis[idx] for idx in selected_indices]
-
+    # Generate the script
     k6_script = generate_k6_script(selected_apis, postman_collection)
 
+    # Filename
     collection_name = os.path.splitext(os.path.basename(args.collection))[0].replace(' ', '')
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     timezone_abbr = time.strftime("%Z")
     k6_filename = f"{collection_name}_{timestamp}_{timezone_abbr}_k6_script.js"
 
@@ -452,5 +462,6 @@ def main():
         file.write(k6_script)
 
     print(f"\n🎯 K6 script saved as: {k6_filename}")
+
 if __name__ == "__main__":
     main()
