@@ -3,6 +3,7 @@ import re
 import os
 import time
 import subprocess
+import argparse
 from datetime import datetime
 
 def list_apis(postman_collection):
@@ -385,59 +386,71 @@ def generate_env_file(postman_environment):
     return env_content, keys
 
 def main():
-    postman_collection_path = input("Enter the Postman collection file path: ").strip('"')
+    parser = argparse.ArgumentParser(description="Convert Postman collection to k6 script.")
+    parser.add_argument('--collection', required=True, help='Path to the Postman collection JSON file')
+    parser.add_argument('--env', help='Path to the Postman environment file (optional)')
+    parser.add_argument('--all', action='store_true', help='Include all APIs in the collection')
+    parser.add_argument('--include', help='Comma-separated list of API indices to include (e.g. 1,3,5)')
+
+    args = parser.parse_args()
+
     try:
-        with open(postman_collection_path, 'r', encoding='utf-8') as file:
+        with open(args.collection, 'r', encoding='utf-8') as file:
             postman_collection = json.load(file)
-        print("Postman collection loaded successfully.")
+        print("✅ Postman collection loaded.")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"❌ Error loading collection: {e}")
         return
 
-    use_env_file = input("Do you want to convert the collection along with a Postman environment variable file? (yes/no): ").strip().lower()
-    if use_env_file == 'yes':
-        postman_environment_path = input("Enter the Postman environment file path: ").strip('"')
+    if args.env:
         try:
-            with open(postman_environment_path, 'r', encoding='utf-8') as file:
+            with open(args.env, 'r', encoding='utf-8') as file:
                 postman_environment = json.load(file)
-            print("Postman environment loaded successfully.")
+            print("✅ Environment file loaded.")
             env_content, keys = generate_env_file(postman_environment)
             with open('.env', 'w', encoding='utf-8') as file:
                 file.write(env_content)
-            print(".env file generated and saved.")
+            print(".env file generated.")
             if 'proxyURL' not in keys:
-                print("▲ Warning: 'proxyURL' is missing from the environment file. Your requests may fail.")
+                print("▲ Warning: 'proxyURL' not found in the environment file.")
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"❌ Error loading environment file: {e}")
             return
 
     apis = list_apis(postman_collection)
-    print("Available APIs:")
-    for idx, api in enumerate(apis):
-        print(f"[{idx + 1}]. {api['name']}  ({api['method']}  {api['url']})")
+    print(f"\n📦 Found {len(apis)} APIs in the collection.")
 
-    selected_indices_input = input("Enter the indices of the APIs to include (comma-separated): ")
-    selected_indices = [int(idx) - 1 for idx in selected_indices_input.split(',')]
-    selected_apis = [apis[idx] for idx in selected_indices]
+    if args.all:
+        selected_apis = apis
+        print("✅ --all flag set: All APIs included.")
+
+    elif args.include:
+        try:
+            selected_indices = [int(i.strip()) - 1 for i in args.include.split(',')]
+            selected_apis = [apis[i] for i in selected_indices]
+            print(f"✅ --include flag set: APIs {args.include} selected.")
+        except Exception as e:
+            print(f"❌ Invalid --include input: {e}")
+            return
+
+    else:
+        print("\nAvailable APIs:")
+        for idx, api in enumerate(apis):
+            print(f"[{idx + 1}]. {api['name']}  ({api['method']}  {api['url']})")
+        selected_indices_input = input("\nEnter the indices of the APIs to include (comma-separated): ")
+        selected_indices = [int(idx.strip()) - 1 for idx in selected_indices_input.split(',')]
+        selected_apis = [apis[idx] for idx in selected_indices]
 
     k6_script = generate_k6_script(selected_apis, postman_collection)
-    collection_name = os.path.splitext(os.path.basename(postman_collection_path))[0].replace(' ', '')
+
+    collection_name = os.path.splitext(os.path.basename(args.collection))[0].replace(' ', '')
     timestamp = datetime.now().strftime("%Y%m%d_%H%M")
     timezone_abbr = time.strftime("%Z")
     k6_filename = f"{collection_name}_{timestamp}_{timezone_abbr}_k6_script.js"
-    log_filename = f"{collection_name}_{timestamp}_{timezone_abbr}_k6_output.txt"
 
-    with open(k6_filename, 'w') as file:
+    with open(k6_filename, 'w', encoding='utf-8') as file:
         file.write(k6_script)
-    print(f"K6 script generated and saved as {k6_filename}")
 
-    # try:
-    #     print("Running the k6 script...")
-    #     with open(log_filename, 'w') as log_file:
-    #         subprocess.run(["k6", "run", k6_filename], stdout=log_file, stderr=subprocess.STDOUT, check=True)
-    #     print(f"K6 execution complete. Output saved to {log_filename}")
-    # except subprocess.CalledProcessError as e:
-    #     print(f"Error running k6 script: {e}")
-
+    print(f"\n🎯 K6 script saved as: {k6_filename}")
 if __name__ == "__main__":
     main()
