@@ -1,3 +1,5 @@
+.PHONY: install dev-install format lint type-check test check clean security quality lock release release-patch release-minor release-major security-check help
+
 install:	## Install dependencies for end users
 	poetry install
 
@@ -16,8 +18,8 @@ lint:	## Lint without modifying code (e.g., in CI)
 type-check:		## Type check with mypy
 	poetry run mypy .
 
-test:	## Run all tests
-	poetry run pytest
+test:	## Run all tests with coverage
+	poetry run pytest -v --cov=gk6 --cov-report=term-missing
 
 check:		## Run lint, type-check, and test
 	make lint
@@ -38,13 +40,35 @@ quality:		## Run format, lint, type-check, test, and security
 lock: 	## Regenerate poetry.lock
 	poetry lock
 
-release: ## Bump patch version, tag, and push
+release-patch: ## Bump patch version, tag, and push
 	poetry version patch
 	git commit -am "🔖 Release v$$(poetry version -s)"
 	git tag v$$(poetry version -s)
 	git push && git push --tags
 
-security-check:		## Tells Bandit to scan the entire directory recursively, starting from the current directory
+release-minor: ## Bump minor version, tag, and push
+	poetry version minor
+	git commit -am "🔖 Release v$$(poetry version -s)"
+	git tag v$$(poetry version -s)
+	git push && git push --tags
+
+release-major: ## Bump major version, tag, and push
+	poetry version major
+	git commit -am "🔖 Release v$$(poetry version -s)"
+	git tag v$$(poetry version -s)
+	git push && git push --tags
+
+release: release-patch ## Default release (patch bump)
+
+publish-release:  ## Bump version, commit, tag, and push to trigger PyPI & GitHub Release
+	poetry version patch
+	git add pyproject.toml poetry.lock
+	git commit -m "🔖 Release v$$(poetry version -s)"
+	git tag v$$(poetry version -s)
+	git push
+	git push --tags
+
+security-check:		## Tells Bandit to scan the entire directory recursively
 	poetry run bandit -r gk6
 
 help: ## Show available make commands
