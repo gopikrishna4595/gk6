@@ -5,25 +5,20 @@ repos:
       - id: black
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.12.7
     hooks:
       - id: ruff
-        args: ["--fix"]  # auto-fixes lint errors
+        args: ["--fix"]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
+    rev: v1.17.1
     hooks:
       - id: mypy
         additional_dependencies: ["types-requests"]
         args: ["--install-types", "--non-interactive"]
 
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.10.1
-    hooks:
-      - id: isort
-
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.2
+    rev: v3.20.0
     hooks:
       - id: pyupgrade
         args: ["--py312-plus"]
@@ -31,24 +26,27 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
+      - id: check-docstring-first
+      - id: check-merge-conflict
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
-  # Optional: Uncomment if you want to prevent secrets
+  - repo: local
+    hooks:
+    - id: isort
+      name: isort (local)
+      entry: poetry run isort . --profile black
+      language: system
+      types: [python]
+
   - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.4.0
+    rev: v1.5.0
     hooks:
       - id: detect-secrets
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.8
+    rev: 1.8.6
     hooks:
       - id: bandit
         args: ["-r", "gk6"]
-
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.2
-    hooks:
-      - id: pyupgrade
-        args: ["--py312-plus"]
