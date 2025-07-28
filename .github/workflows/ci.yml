@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Run Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
+
+      - name: Install Dependencies
+        run: |
+          poetry install
+          poetry run pre-commit install
+
+      - name: Lint
+        run: make lint
+
+      - name: Type Check
+        run: make type-check
+
+      - name: Run Tests
+        run: make test
+
+      - name: Security Check
+        run: make security
