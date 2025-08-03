@@ -520,7 +520,7 @@ def convert(
 
 @app.command()
 def list_all(
-    collection: Path = typer.Option(..., help="Path to Postman collection JSON")
+    collection: Path = typer.Option(..., help="Path to Postman collection JSON"),
 ):
     """
     Lists all APIs in the provided Postman collection.

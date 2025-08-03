@@ -32,13 +32,10 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
 
-  - repo: local
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
     hooks:
     - id: isort
-      name: isort (local)
-      entry: poetry run isort . --profile black
-      language: system
-      types: [python]
 
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0

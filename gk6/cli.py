@@ -85,7 +85,7 @@ def convert(
 
 @app.command(name="list-apis")
 def list_apis_in_collection(
-    collection: Path = typer.Option(..., help="Path to Postman collection JSON")
+    collection: Path = typer.Option(..., help="Path to Postman collection JSON"),
 ):
     try:
         with collection.open("r", encoding="utf-8") as file:

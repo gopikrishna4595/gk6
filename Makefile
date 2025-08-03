@@ -8,7 +8,8 @@ dev-install: ## Install everything needed for development (formatters, linters, 
 	poetry run pre-commit install
 
 format: ## Format code with black and autofix lint issues with ruff and isort
-	poetry run ruff . --fix
+	poetry run ruff format .
+	poetry run ruff check . --fix
 	poetry run isort . --profile black
 	poetry run black .
 
