@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gk6"
-version = "2.0.10"
+version = "2.0.11"
 description = "Postman to k6 converter"
 authors = ["Gopi Krishna <gopikrishna4595@gmail.com>"]
 packages = [{ include = "gk6" }]
