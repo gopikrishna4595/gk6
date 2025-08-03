@@ -82,6 +82,20 @@ def test_extract_chaining_variables_multiple():
 def test_cli_env_file_option(tmp_path):
     dummy_postman = tmp_path / "collection.json"
     dummy_postman.write_text('{"item": []}')
-    result = runner.invoke(app, [str(dummy_postman), "--env-file", "env.json"])
+    dummy_env = tmp_path / "env.json"
+    dummy_env.write_text("{}")  # create an empty env file
+
+    result = runner.invoke(
+        app,
+        [
+            "convert",
+            "--collection",
+            str(dummy_postman),
+            "--env",
+            str(dummy_env),
+            "--all",
+        ],
+    )
     if result.exit_code != 0:
+        print("OUTPUT:", result.output)
         pytest.fail(f"Expected exit code 0, got {result.exit_code}")
