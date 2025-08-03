@@ -1,8 +1,14 @@
 [tool.poetry]
 name = "gk6"
-version = "2.0.11"
+version = "2.0.12"
+readme = "README.md"
 description = "Postman to k6 converter"
+license = "MIT"
+keywords = ["postman", "k6", "converter"]
+homepage = "https://github.com/gopikrishna4595/gk6"
+repository = "https://github.com/gopikrishna4595/gk6"
 authors = ["Gopi Krishna <gopikrishna4595@gmail.com>"]
+documentation = "https://gopikrishna4595.github.io/gk6/"
 packages = [{ include = "gk6" }]
 
 [tool.poetry.dependencies]

@@ -46,7 +46,7 @@ lock: ## Regenerate poetry.lock
 release-patch: ## Bump patch version, tag, and push
 	poetry version patch
 	git add pyproject.toml poetry.lock
-	git commit -m "🔖 Release v$$(poetry version -s)"
+	git commit -m "⚡ gk6 Release v$$(poetry version -s)"
 	git tag v$$(poetry version -s)
 	git push && git push --tags
 
