@@ -18,7 +18,7 @@ ruff = "^0.12.7"
 mypy = "^1.17.1"
 pytest = "^8.4.1"
 bandit = "^1.8.6"
-pre-commit = "^5.0.0"
+pre-commit = "^4.2.0"
 pytest-cov = "^6.2.1"
 isort = "^6.0.1"
 
